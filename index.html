@@ -1,169 +1,2407 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OLEN — Privacy Policy</title>
+  <title>OLEN — Take Back Your Attention. Live in the Moment.</title>
+  <meta name="description" content="Olen is a local-first digital wellbeing shield for Android. Block Reels, Shorts, distracting apps, and websites—then compete in Olen Ranked 1v1 and pair Guardian Control." />
+  <meta name="theme-color" content="#08080B" />
+
+  <!-- Google Fonts: Inter, JetBrains Mono & Newsreader (editorial serif matching the OLEN app) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#08080B',
+            charcoal: '#111117',
+            card: '#111117',
+            hairline: '#232330',
+            ink: '#F2F2F7',
+            slateMuted: '#9A9AAC',
+            volt: '#F4FF00',
+            emeraldNeon: '#39FF88',
+            chaosRed: '#FF3366',
+            olenAmber: '#E89B2D'
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'Cambria', 'serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
   <style>
     :root {
       --bg: #08080B;
-      --card: #13131B;
-      --border: #262634;
+      --card: #111117;
+      --border: #232330;
       --text: #F2F2F7;
-      --muted: #9E9EAE;
+      --muted: #9A9AAC;
       --accent: #F4FF00;
       --green: #39FF88;
+      color-scheme: dark;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
+
+    html, body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-      line-height: 1.65;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .container { max-width: 780px; margin: 0 auto; padding: 48px 20px 80px; }
-    .eyebrow {
-      color: var(--accent);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; margin-bottom: 10px;
+
+    /* Subtle dark scrollbar for page */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-    h1 { font-size: 34px; line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.02em; }
-    .meta { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px; margin-bottom: 20px;
+    ::-webkit-scrollbar-track {
+      background: #08080B;
     }
-    .highlight-card { border-color: rgba(244, 255, 0, 0.35); }
-    h2 { font-size: 19px; margin: 0 0 12px; color: #FFFFFF; }
-    p { margin: 0 0 12px; color: #D8D8E4; font-size: 15px; }
-    p:last-child, ul:last-child { margin-bottom: 0; }
-    ul { margin: 8px 0 12px; padding-left: 20px; color: #D8D8E4; font-size: 15px; }
-    li { margin-bottom: 6px; }
-    strong { color: #FFFFFF; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .badge {
-      display: inline-block; background: rgba(57, 255, 136, 0.12);
-      color: var(--green); border: 1px solid rgba(57, 255, 136, 0.3);
-      font-size: 12px; font-weight: 700; padding: 4px 10px;
-      border-radius: 999px; margin-bottom: 12px; letter-spacing: 0.05em;
+    ::-webkit-scrollbar-thumb {
+      background: #232330;
+      border-radius: 999px;
     }
-    footer {
-      margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);
-      color: var(--muted); font-size: 13px; text-align: center;
+    ::-webkit-scrollbar-thumb:hover {
+      background: #363649;
+    }
+
+    /* Ultra-clean thin hidden scrollbar inside the Android phone screen */
+    .phone-scroll {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .phone-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Kinetic hero entrance animations */
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-reveal {
+      opacity: 0;
+      animation: fadeSlideUp 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-delay-1 { animation-delay: 0.06s; }
+    .hero-delay-2 { animation-delay: 0.14s; }
+    .hero-delay-3 { animation-delay: 0.22s; }
+    .hero-delay-4 { animation-delay: 0.30s; }
+    .hero-delay-5 { animation-delay: 0.38s; }
+
+    /* Scroll reveal utility */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1), transform 0.68s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mouse-tracking spotlight border cards */
+    .bento-card {
+      position: relative;
+      background: #111117;
+      border: 1px solid #232330;
+      overflow: hidden;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: radial-gradient(
+        420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(244, 255, 0, 0.45),
+        rgba(57, 255, 136, 0.14) 38%,
+        transparent 70%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .bento-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(244, 255, 0, 0.055),
+        transparent 55%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .bento-card:hover::before,
+    .bento-card:hover::after {
+      opacity: 1;
+    }
+    .bento-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Subtle grid background texture */
+    .bg-cyber-grid {
+      background-image:
+        linear-gradient(to right, rgba(35, 35, 48, 0.24) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(35, 35, 48, 0.24) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* Pulsing live dot */
+    @keyframes pulseRing {
+      0% { transform: scale(0.85); opacity: 0.85; }
+      70% { transform: scale(2.15); opacity: 0; }
+      100% { transform: scale(2.15); opacity: 0; }
+    }
+    .pulse-ring::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background: currentColor;
+      animation: pulseRing 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    }
+
+    /* Smooth accordion content */
+    .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-item[data-open="true"] .faq-content {
+      grid-template-rows: 1fr;
+    }
+    .faq-inner {
+      overflow: hidden;
+    }
+    .faq-chevron {
+      transition: transform 0.28s ease;
+    }
+    .faq-item[data-open="true"] .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Authentic OLEN phone switch transition */
+    .olen-switch-thumb {
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
+    }
+
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-reveal, .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      .pulse-ring::before {
+        animation: none !important;
+      }
     }
   </style>
 </head>
-<body>
-  <main class="container">
-    <div class="eyebrow">OLEN // DIGITAL WELLBEING & FOCUS</div>
-    <h1>Privacy Policy</h1>
-    <div class="meta">
-      App: <strong>Olen</strong> (<code>app.olen.focus</code>) · Effective Date: <strong>November 24, 2026</strong>
+<body class="bg-obsidian text-ink font-sans selection:bg-volt selection:text-obsidian">
+
+  <!-- ==================== GLOBAL PAGE TOAST ==================== -->
+  <div id="toast-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none px-4 w-full max-w-md flex justify-center">
+    <div id="toast" class="opacity-0 translate-y-4 transition-all duration-300 pointer-events-auto bg-card/95 backdrop-blur-xl border border-volt/40 text-ink px-4 py-3 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.8)] flex items-center gap-3 text-sm">
+      <span id="toast-dot" class="w-2 h-2 rounded-full bg-volt shrink-0"></span>
+      <span id="toast-message" class="font-medium tracking-tight">Notification</span>
     </div>
+  </div>
 
-    <section class="card">
-      <h2>1. Overview</h2>
-      <p>
-        This Privacy Policy explains how <strong>Olen App</strong> handles information when you use the <strong>Olen</strong> Android application (package ID: <code>app.olen.focus</code>).
-      </p>
-      <p>
-        Olen is designed with a <strong>local-first privacy architecture</strong>. App blocking, short-form video blocking, website filtering, and daily screen time calculations run strictly on your device. We never sell your personal data and never display third-party behavioral ads.
-      </p>
-    </section>
+  <!-- ==================== 1. STICKY GLASSMORPHIC TOP NAVBAR ==================== -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-obsidian/75 backdrop-blur-xl border-b border-hairline/80">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Authentic OLEN Split-Square Lightning Logo Mark + Wordmark -->
+      <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+        <svg class="w-6 h-7 shrink-0 drop-shadow-[0_0_10px_rgba(244,255,0,0.2)] transition-transform group-hover:scale-105" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Left white half -->
+          <path d="M4 2C2.343 2 1 3.343 1 5V27C1 28.657 2.343 30 4 30H14V2H4Z" fill="#F5F5F7"/>
+          <!-- Right cool grey half -->
+          <path d="M14 2H24C25.657 2 27 3.343 27 5V27C27 28.657 25.657 30 24 30H14V2Z" fill="#9A9AA6"/>
+          <!-- Electric yellow lightning bolt cutting vertically down the split -->
+          <path d="M17.2 0.8L8.4 16.3H14.1L10.8 31.2L20.1 14.8H14.3L17.2 0.8Z" fill="#F4FF00" stroke="#08080B" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <span class="font-sans font-bold text-lg tracking-[0.26em] text-ink">OLEN</span>
+      </a>
 
-    <section class="card highlight-card" id="accessibility">
-      <div class="badge">100% ON-DEVICE PROCESSING</div>
-      <h2>2. Android AccessibilityService API Disclosure</h2>
-      <p>
-        Olen uses the Android <strong>AccessibilityService API</strong> as its core focus and blocking engine. When enabled by you, this service operates in the background—even when Olen is closed or not actively open—for the following strictly limited purposes:
-      </p>
-      <ul>
-        <li><strong>App & Short-Form Video Blocking:</strong> Detects the currently active app package name and short-form video feeds (such as Instagram Reels, YouTube Shorts, and Stories) so Olen can close or interrupt distracting content you chose to restrict.</li>
-        <li><strong>Website Filtering:</strong> Inspects the visible URL bar in supported web browsers solely to check domains against your personal blocklist.</li>
-        <li><strong>Optional Commitment Lock:</strong> If you explicitly activate a Removal Delay or Guardian PIN lock, detects when Android Settings is opened to uphold your chosen commitment until the timer expires or your PIN is entered.</li>
-      </ul>
-      <p>
-        <strong>Strict Privacy Guarantee:</strong> All AccessibilityService inspection runs exclusively in memory on your device. Olen <strong>never</strong> records keystrokes, reads passwords or private messages, captures screenshots, or transmits any screen content or browsing history to any server or third party.
-      </p>
-    </section>
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-7 text-sm font-medium text-slateMuted">
+        <a href="#features" class="hover:text-ink transition-colors">Features</a>
+        <a href="#how-it-works" class="hover:text-ink transition-colors">How It Works</a>
+        <a href="#privacy-architecture" class="hover:text-ink transition-colors">Privacy Architecture</a>
+        <a href="#faq" class="hover:text-ink transition-colors">FAQ</a>
+        <a href="#privacy" class="hover:text-volt transition-colors">Privacy Policy</a>
+      </div>
 
-    <section class="card">
-      <h2>3. Other Android Permissions Used</h2>
-      <ul>
-        <li><strong>Usage Access (<code>PACKAGE_USAGE_STATS</code>):</strong> Used on-device to measure your screen time, phone unlocks, and night usage to calculate your Olen Score and 1v1 match standings.</li>
-        <li><strong>Installed Apps List (<code>QUERY_ALL_PACKAGES</code>):</strong> Used locally to display your installed applications so you can select which apps to block, limit, or include in the optional Olen Zen Launcher. Your app list is not uploaded to our servers.</li>
-        <li><strong>Notification Access (Optional):</strong> Used locally if you enable Notification Batching to hold non-urgent notifications during focus periods. Notification contents are never transmitted off your device.</li>
-        <li><strong>Activity Recognition & Location (Optional):</strong> Used locally only if you enable optional movement/step challenges (e.g., Walk for Freedom) or location-based focus rules.</li>
-        <li><strong>Device Administrator (Optional):</strong> Used only if you explicitly enable optional lock protection features.</li>
-      </ul>
-    </section>
+      <!-- Desktop Download Pill Button -->
+      <div class="hidden md:flex items-center gap-3">
+        <button type="button" onclick="triggerPlayStoreToast()" class="inline-flex items-center gap-2 bg-volt hover:bg-[#e6f000] text-obsidian font-semibold text-sm px-5 py-2.5 rounded-full transition-all shadow-[0_0_24px_rgba(244,255,0,0.2)] hover:shadow-[0_0_32px_rgba(244,255,0,0.4)] active:scale-[0.98]">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+          </svg>
+          <span>Download on Google Play</span>
+        </button>
+      </div>
 
-    <section class="card">
-      <h2>4. Data Stored in the Cloud (Optional Features)</h2>
-      <p>
-        If you use Olen's optional cloud, social, or competitive features, minimal data is synced to our backend infrastructure (powered by <strong>Supabase</strong>):
-      </p>
-      <ul>
-        <li><strong>Olen Account & Cloud Backup (Optional):</strong> If you sign in, we store your account identifier (email/auth ID) and your focus settings/score backup so you can restore them across devices.</li>
-        <li><strong>Squads, Friend 1v1 Duels & Olen Ranked 1v1 (Optional):</strong> If you join a Squad, 1v1 Duel, or Ranked match, we sync your chosen display nickname, Olen Score / Elo rating, match screen-time minutes, and unlock count so your match standings can be calculated and shown to your opponent or squad members.</li>
-        <li><strong>Live Global Percentile Rank (Anonymous):</strong> To calculate your "TOP X%" badge, Olen sends only a randomly generated, one-way SHA-256 anonymous device hash and your numeric Olen Score. This hash cannot be traced back to your identity or hardware ID.</li>
-      </ul>
-    </section>
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" type="button" aria-label="Toggle Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl bg-charcoal border border-hairline text-ink hover:border-volt/50 transition-colors">
+        <svg id="menu-icon-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </nav>
 
-    <section class="card">
-      <h2>5. Third-Party Services</h2>
-      <ul>
-        <li><strong>Supabase:</strong> Cloud database and authentication provider used for optional account sync, Squads, 1v1 Duels, Ranked matchmaking, and anonymous percentile ranking.</li>
-        <li><strong>Google Play Billing:</strong> Processes optional Olen PRO subscriptions and in-app purchases. We do not receive or store your payment card details.</li>
-      </ul>
-    </section>
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-hairline bg-obsidian/95 backdrop-blur-2xl px-4 py-5 space-y-2">
+      <a href="#features" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-ink hover:bg-charcoal">Features</a>
+      <a href="#how-it-works" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-ink hover:bg-charcoal">How It Works</a>
+      <a href="#privacy-architecture" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-ink hover:bg-charcoal">Privacy Architecture</a>
+      <a href="#faq" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-ink hover:bg-charcoal">FAQ</a>
+      <a href="#privacy" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-mono text-volt hover:bg-charcoal">Privacy Policy &amp; Data Deletion</a>
+      <div class="pt-3">
+        <button type="button" onclick="triggerPlayStoreToast()" class="w-full py-3 px-4 rounded-full bg-volt text-obsidian font-semibold text-sm flex items-center justify-center gap-2">
+          Download on Google Play
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <section class="card" id="data-deletion">
-      <h2>6. Data Retention & Account Deletion</h2>
-      <p>
-        Local app data remains solely on your device and is permanently removed if you clear Olen's app storage or uninstall the app.
-      </p>
-      <p><strong>How to delete your cloud data or Olen account:</strong></p>
-      <ul>
-        <li><strong>In-App:</strong> Open <strong>Olen → Settings / Account</strong> and use the account/cloud data deletion option to erase your synced profile, backups, and match telemetry.</li>
-        <li><strong>By Email Request:</strong> Email us at <a href="mailto:app.olenapp@gmail.com">app.olenapp@gmail.com</a> with the subject <code>OLEN Data Deletion Request</code> and include the email address or Squad nickname associated with your account. We will permanently delete all associated cloud records within <strong>7 days</strong> and confirm once completed.</li>
-      </ul>
-    </section>
+  <!-- ==================== 2. EPIC HERO SECTION WITH 60FPS CANVAS & REAL 5-TAB PHONE ==================== -->
+  <section id="top" class="relative min-h-screen flex items-center pt-24 pb-16 lg:pt-28 lg:pb-24 overflow-hidden">
+    <!-- Full-Bleed 60fps HTML5 Canvas -->
+    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
-    <section class="card">
-      <h2>7. Children's Privacy</h2>
-      <p>
-        Olen is not directed to children under the age of 13 (or 16 in the European Economic Area). We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can delete it immediately.
-      </p>
-    </section>
+    <!-- Radial Legibility Vignette -->
+    <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_24%_38%,rgba(244,255,0,0.06),transparent_48%),radial-gradient(circle_at_76%_50%,rgba(57,255,136,0.05),transparent_52%),linear-gradient(180deg,rgba(8,8,11,0.32)_0%,rgba(8,8,11,0.68)_78%,#08080B_100%)]"></div>
 
-    <section class="card">
-      <h2>8. Your Privacy Rights (GDPR & Global)</h2>
-      <p>
-        Depending on your location (including the EU/EEA under GDPR), you have the right to access, correct, export, or request deletion of any personal data we store, as well as the right to withdraw consent at any time by disabling permissions in Android Settings or deleting your account.
-      </p>
-    </section>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
-    <section class="card">
-      <h2>9. Changes & Contact</h2>
-      <p>
-        We may update this Privacy Policy from time to time as Olen evolves. The latest version will always be published at this URL with an updated Effective Date.
-      </p>
-      <p>
-        If you have any questions about this Privacy Policy or your data, contact us at:<br />
-        <strong>Email:</strong> <a href="mailto:app.olenapp@gmail.com">app.olenapp@gmail.com</a><br />
-        <strong>Developer:</strong> Olen App
-      </p>
-    </section>
+        <!-- HERO LEFT COLUMN -->
+        <div class="lg:col-span-6 xl:col-span-7 space-y-7">
+          <!-- Eyebrow Badge -->
+          <div class="hero-reveal hero-delay-1 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-charcoal/90 backdrop-blur-md border border-hairline">
+            <span id="hero-status-dot" class="relative w-2 h-2 rounded-full bg-emeraldNeon text-emeraldNeon pulse-ring"></span>
+            <span id="hero-eyebrow-text" class="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.16em] uppercase text-ink">
+              OLEN // DIGITAL WELLBEING &amp; FOCUS
+            </span>
+          </div>
 
-    <footer>
-      © 2026 OLEN · Live in the moment.
-    </footer>
-  </main>
+          <!-- Bold Editorial Headline -->
+          <h1 class="hero-reveal hero-delay-2 text-4xl sm:text-6xl xl:text-[64px] leading-[1.05] tracking-[-0.03em] text-ink font-bold">
+            Take back your attention.<br />
+            <span class="font-serif font-medium text-volt drop-shadow-[0_0_28px_rgba(244,255,0,0.18)]">Live in the moment.</span>
+          </h1>
+
+          <!-- Crisp Subtitle -->
+          <p class="hero-reveal hero-delay-3 text-base sm:text-lg text-slateMuted max-w-xl leading-relaxed">
+            Local-first Android app blocking, surgical Reels &amp; Shorts shields, competitive <strong class="text-ink font-medium">Olen Ranked 1v1</strong> Elo duels, and verified <strong class="text-ink font-medium">Guardian Control</strong>—built to reclaim hours of real life without selling a byte of your data.
+          </p>
+
+          <!-- Primary CTA Buttons + Interactive TEST FOCUS SHIELD Toggle -->
+          <div class="hero-reveal hero-delay-4 flex flex-wrap items-center gap-3.5 pt-1">
+            <button type="button" onclick="triggerPlayStoreToast()" class="inline-flex items-center gap-3 bg-volt hover:bg-[#e6f000] text-obsidian font-bold text-sm sm:text-base px-6 py-3.5 rounded-full transition-all shadow-[0_0_30px_rgba(244,255,0,0.22)] hover:shadow-[0_0_44px_rgba(244,255,0,0.42)] active:scale-[0.98]">
+              <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+              </svg>
+              <span>Get OLEN for Android</span>
+            </button>
+
+            <!-- Interactive TEST FOCUS SHIELD Toggle -->
+            <button id="shield-toggle-btn" type="button" role="switch" aria-checked="true" class="group inline-flex items-center gap-3 px-5 py-3.5 rounded-full bg-charcoal/90 backdrop-blur-xl border border-emeraldNeon/45 text-emeraldNeon font-mono text-xs font-bold tracking-wider transition-all duration-300 hover:bg-emeraldNeon/12 active:scale-[0.98]">
+              <span id="shield-toggle-indicator" class="w-2.5 h-2.5 rounded-full bg-emeraldNeon shadow-[0_0_10px_#39FF88] transition-colors"></span>
+              <span class="text-slateMuted font-medium hidden sm:inline">TEST FOCUS SHIELD:</span>
+              <span id="shield-toggle-label">SHIELD ACTIVE</span>
+            </button>
+          </div>
+
+          <!-- Trust Stats Strip -->
+          <div class="hero-reveal hero-delay-5 grid grid-cols-3 gap-3 sm:gap-5 pt-4 border-t border-hairline/80 max-w-xl">
+            <div>
+              <div class="font-mono text-xs sm:text-sm font-bold text-ink">100% On-Device</div>
+              <div class="text-xs text-slateMuted mt-0.5">Local blocking engine</div>
+            </div>
+            <div>
+              <div class="font-mono text-xs sm:text-sm font-bold text-emeraldNeon">Zero Ads</div>
+              <div class="text-xs text-slateMuted mt-0.5">No trackers or data brokers</div>
+            </div>
+            <div>
+              <div class="font-mono text-xs sm:text-sm font-bold text-volt">Android Accessibility</div>
+              <div class="text-xs text-slateMuted mt-0.5">Scoped event engine</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO RIGHT COLUMN: PIXEL-ACCURATE 5-TAB ANDROID PHONE MOCKUP -->
+        <div class="lg:col-span-6 xl:col-span-5 flex flex-col items-center lg:items-end hero-reveal hero-delay-3">
+          <div class="relative w-full max-w-[356px]">
+            <!-- Ambient Neon Backlight Behind Phone -->
+            <div id="phone-glow" class="absolute -inset-4 rounded-[3.2rem] bg-gradient-to-tr from-volt/15 via-emeraldNeon/10 to-transparent blur-2xl opacity-80 transition-all duration-500 pointer-events-none"></div>
+
+            <!-- Sleek Modern Android Hardware Frame -->
+            <div class="relative w-full h-[708px] rounded-[44px] bg-[#16161C] p-[9px] border border-[#323240] shadow-[0_32px_90px_rgba(0,0,0,0.92),inset_0_1px_1px_rgba(255,255,255,0.12)]">
+              <!-- Side Hardware Buttons (decorative) -->
+              <div class="hidden sm:block absolute -right-[3px] top-28 w-[3px] h-12 rounded-r bg-[#2E2E3A]"></div>
+              <div class="hidden sm:block absolute -right-[3px] top-44 w-[3px] h-16 rounded-r bg-[#2E2E3A]"></div>
+
+              <!-- Pitch-Black OLED Android Display -->
+              <div class="relative w-full h-full rounded-[36px] bg-black overflow-hidden flex flex-col border border-[#1E1E24] select-none">
+
+                <!-- 1) AUTHENTIC ANDROID STATUS BAR (12.46 ... 29 %) -->
+                <div class="shrink-0 h-8 px-5 pt-1.5 flex items-center justify-between text-[11px] font-medium text-[#E5E5EA] bg-black z-30">
+                  <div class="flex items-center gap-1.5">
+                    <span class="tracking-tight font-semibold">12.46</span>
+                    <!-- Tiny status icons matching screenshot -->
+                    <svg class="w-3 h-3 text-[#E5E5EA]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4L3 20h18L12 4z"/></svg>
+                    <svg class="w-3 h-3 text-[#E5E5EA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="6" y="3" width="12" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="14"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+                    <span class="w-1 h-1 rounded-full bg-[#E5E5EA]"></span>
+                  </div>
+                  <!-- Camera Punch-Hole -->
+                  <div class="w-3 h-3 rounded-full bg-[#121216] border border-[#23232A]"></div>
+                  <div class="flex items-center gap-1.5">
+                    <!-- Silent bell -->
+                    <svg class="w-3 h-3 text-[#C7C7CC]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+                    <!-- Wi-Fi -->
+                    <svg class="w-3 h-3 text-[#E5E5EA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    <!-- Signal -->
+                    <svg class="w-3 h-3 text-[#E5E5EA]" viewBox="0 0 24 24" fill="currentColor"><path d="M2 22h20V2L2 22z"/></svg>
+                    <span class="text-[10.5px] font-semibold">29 %</span>
+                  </div>
+                </div>
+
+                <!-- 2) SCROLLABLE PHONE APP VIEWPORT -->
+                <div id="phone-viewport" class="phone-scroll flex-1 overflow-y-auto px-3.5 pb-6 bg-black text-white">
+
+                  <!-- DYNAMIC HEADER PER ACTIVE TAB -->
+                  <div id="phone-header-home" class="pt-2.5 pb-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                      <!-- Authentic OLEN split icon -->
+                      <svg class="w-5 h-6 shrink-0" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 2C2.343 2 1 3.343 1 5V27C1 28.657 2.343 30 4 30H14V2H4Z" fill="#F5F5F7"/>
+                        <path d="M14 2H24C25.657 2 27 3.343 27 5V27C27 28.657 25.657 30 24 30H14V2Z" fill="#9A9AA6"/>
+                        <path d="M17.2 0.8L8.4 16.3H14.1L10.8 31.2L20.1 14.8H14.3L17.2 0.8Z" fill="#F4FF00" stroke="#000000" stroke-width="1.6" stroke-linejoin="round"/>
+                      </svg>
+                      <div class="leading-tight">
+                        <div class="font-sans font-bold text-[15px] tracking-[0.22em] text-white">OLEN</div>
+                        <div class="font-serif text-[11px] text-[#8E8E93] mt-0.5">Live in the moment.</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <button type="button" onclick="phoneToast('OLEN PRO — Unlock unlimited blocks & Guardian Sync')" class="px-2.5 py-1 rounded-full bg-[#111114] border border-[#26262E] text-[10px] font-bold tracking-wider text-[#E8FF00] hover:border-[#E8FF00]/50 transition-colors">
+                        PRO
+                      </button>
+                      <button id="phone-shield-pill" type="button" onclick="toggleHeroShield()" class="px-2.5 py-1 rounded-full bg-[#111114] border border-[#26262E] text-[10px] font-bold tracking-wider text-white flex items-center gap-1.5 hover:border-white/40 transition-colors">
+                        <span id="phone-shield-dot" class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <span id="phone-shield-text">SHIELD</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="phone-header-stats" class="hidden pt-2.5 pb-3">
+                    <div class="text-[9.5px] font-mono tracking-[0.18em] text-[#8E8E93] uppercase">OLEN / ANALYTICS</div>
+                    <div class="font-serif text-[26px] leading-tight text-[#F5F5F7] mt-0.5">Time reclaimed.</div>
+                  </div>
+
+                  <div id="phone-header-squad" class="hidden pt-2.5 pb-3">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[9.5px] font-mono tracking-[0.18em] text-[#8E8E93] uppercase">OLEN / SQUAD</span>
+                      <button type="button" onclick="phoneToast('Display nickname: YOU')" class="px-2.5 py-0.5 rounded-full bg-[#111114] border border-[#26262E] text-[9.5px] font-bold tracking-wider text-[#E5E5EA]">
+                        NAME: YOU &gt;
+                      </button>
+                    </div>
+                    <div class="font-serif text-[26px] leading-tight text-[#F5F5F7] mt-0.5">Less, together.</div>
+                  </div>
+
+                  <div id="phone-header-guardian" class="hidden pt-2.5 pb-3">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[9.5px] font-mono tracking-[0.18em] text-[#8E8E93] uppercase">OLEN / GUARDIAN</span>
+                      <span id="guardian-status-pill" class="px-2.5 py-0.5 rounded-full bg-[#111114] border border-[#26262E] text-[9.5px] font-bold tracking-wider text-[#8E8E93] flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#636366]"></span>
+                        <span>INACTIVE</span>
+                      </span>
+                    </div>
+                    <div class="font-serif text-[26px] leading-tight text-[#F5F5F7] mt-0.5">Guardian Control.</div>
+                  </div>
+
+                  <div id="phone-header-settings" class="hidden pt-2.5 pb-3">
+                    <div class="text-[9.5px] font-mono tracking-[0.18em] text-[#8E8E93] uppercase">OLEN / CONTROL</div>
+                    <div class="font-serif text-[26px] leading-tight text-[#F5F5F7] mt-0.5">Settings.</div>
+                  </div>
+
+                  <!-- STICKY 5-TAB DARK PILL NAVIGATION BAR (EXACT ORDER) -->
+                  <div class="sticky top-0 z-20 bg-black/95 backdrop-blur-md py-1.5 -mx-0.5 px-0.5 mb-3">
+                    <div class="grid grid-cols-5 items-center p-[3px] rounded-full bg-[#111114] border border-[#222228]" role="tablist" aria-label="OLEN App Navigation">
+                      <button type="button" role="tab" data-phone-tab="home" aria-selected="true" class="phone-tab-btn py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all">
+                        Home
+                      </button>
+                      <button type="button" role="tab" data-phone-tab="stats" aria-selected="false" class="phone-tab-btn py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] hover:text-white transition-all">
+                        Stats
+                      </button>
+                      <button type="button" role="tab" data-phone-tab="squad" aria-selected="false" class="phone-tab-btn py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] hover:text-white transition-all">
+                        Squad
+                      </button>
+                      <button type="button" role="tab" data-phone-tab="guardian" aria-selected="false" class="phone-tab-btn py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] hover:text-white transition-all">
+                        Guardian
+                      </button>
+                      <button type="button" role="tab" data-phone-tab="settings" aria-selected="false" class="phone-tab-btn py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] hover:text-white transition-all">
+                        Settings
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- ==================== TAB 1: HOME ==================== -->
+                  <div id="phone-panel-home" class="phone-panel space-y-3">
+                    <!-- OLEN SCORE Card -->
+                    <div onclick="switchPhoneTab('stats')" class="cursor-pointer rounded-[20px] bg-[#101013] border border-[#222228] p-4 hover:border-[#32323D] transition-colors">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">OLEN SCORE</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#16161B] border border-[#2B2B34] text-[10px] font-semibold text-[#F2F2F7]">
+                          TOP 70%
+                        </span>
+                      </div>
+                      <div id="phone-olen-score" class="text-[38px] font-light tracking-tight text-[#E89B2D] leading-none mt-2 mb-3.5 tabular-nums">
+                        4 512
+                      </div>
+                      <!-- Progress Bar (~43% yellow fill) -->
+                      <div class="w-full h-[5px] rounded-full bg-[#232329] overflow-hidden mb-3">
+                        <div id="phone-score-bar" class="h-full rounded-full bg-[#E8FF00] transition-all duration-500" style="width: 43%;"></div>
+                      </div>
+                      <div class="text-[10.5px] text-[#7D7D87] flex items-center gap-1">
+                        <span id="phone-score-delta">+73 today</span>
+                        <span>&middot;</span>
+                        <span>Tap for Olen Score breakdown &rarr;</span>
+                      </div>
+                    </div>
+
+                    <!-- 3-Column Quick Action Cards -->
+                    <div class="grid grid-cols-3 gap-2">
+                      <!-- Card 1: Deep Work -->
+                      <button id="qa-deepwork" type="button" onclick="toggleQuickAction('deepwork')" class="rounded-[18px] bg-[#101013] border border-[#222228] py-3.5 px-2 flex flex-col items-center justify-center text-center gap-1 hover:border-[#3A3A46] transition-all">
+                        <span id="qa-deepwork-icon" class="w-4 h-4 flex items-center justify-center text-white">
+                          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3.5" fill="currentColor"/></svg>
+                        </span>
+                        <span class="text-[11.5px] font-semibold text-[#F5F5F7] leading-tight">Deep Work</span>
+                        <span id="qa-deepwork-sub" class="text-[10px] text-[#8E8E93]">Start</span>
+                      </button>
+
+                      <!-- Card 2: Coffee Break -->
+                      <button id="qa-coffee" type="button" onclick="toggleQuickAction('coffee')" class="rounded-[18px] bg-[#101013] border border-[#222228] py-3.5 px-2 flex flex-col items-center justify-center text-center gap-1 hover:border-[#3A3A46] transition-all">
+                        <span id="qa-coffee-icon" class="w-4 h-4 flex items-center justify-center text-white">
+                          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2"/></svg>
+                        </span>
+                        <span class="text-[11.5px] font-semibold text-[#F5F5F7] leading-tight">Coffee Break</span>
+                        <span id="qa-coffee-sub" class="text-[10px] text-[#8E8E93]">15 min</span>
+                      </button>
+
+                      <!-- Card 3: Audio -->
+                      <button id="qa-audio" type="button" onclick="toggleQuickAction('audio')" class="rounded-[18px] bg-[#101013] border border-[#222228] py-3.5 px-2 flex flex-col items-center justify-center text-center gap-1 hover:border-[#3A3A46] transition-all">
+                        <span class="w-4 h-4 flex items-center justify-center text-white text-[13px] leading-none">&#9835;</span>
+                        <span class="text-[11.5px] font-semibold text-[#F5F5F7] leading-tight">Audio</span>
+                        <span id="qa-audio-sub" class="text-[10px] text-[#8E8E93]">2 apps</span>
+                      </button>
+                    </div>
+
+                    <!-- ALGORITHM SHIELDS Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-3.5">
+                      <div class="text-[10px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">
+                        ALGORITHM SHIELDS
+                      </div>
+
+                      <!-- Row 1: Instagram & FB Reels (ON) -->
+                      <div class="flex items-center justify-between">
+                        <span class="text-[13px] font-medium text-[#F5F5F7]">Instagram &amp; FB Reels</span>
+                        <button type="button" role="switch" aria-checked="true" data-alg-toggle="reels" onclick="toggleAlgorithmShield(this, 'Instagram & FB Reels')" class="alg-switch relative w-10 h-[22px] rounded-full bg-[#5B6012] flex items-center p-[2px] transition-colors">
+                          <span class="olen-switch-thumb w-[18px] h-[18px] rounded-full bg-[#F4FF00] translate-x-[18px] shadow-[0_0_8px_rgba(244,255,0,0.45)]"></span>
+                        </button>
+                      </div>
+
+                      <!-- Row 2: YouTube Shorts (ON) -->
+                      <div class="flex items-center justify-between">
+                        <span class="text-[13px] font-medium text-[#F5F5F7]">YouTube Shorts</span>
+                        <button type="button" role="switch" aria-checked="true" data-alg-toggle="shorts" onclick="toggleAlgorithmShield(this, 'YouTube Shorts')" class="alg-switch relative w-10 h-[22px] rounded-full bg-[#5B6012] flex items-center p-[2px] transition-colors">
+                          <span class="olen-switch-thumb w-[18px] h-[18px] rounded-full bg-[#F4FF00] translate-x-[18px] shadow-[0_0_8px_rgba(244,255,0,0.45)]"></span>
+                        </button>
+                      </div>
+
+                      <!-- Row 3: Instagram Stories (OFF) -->
+                      <div class="flex items-center justify-between">
+                        <span class="text-[13px] font-medium text-[#F5F5F7]">Instagram Stories</span>
+                        <button type="button" role="switch" aria-checked="false" data-alg-toggle="stories" onclick="toggleAlgorithmShield(this, 'Instagram Stories')" class="alg-switch relative w-10 h-[22px] rounded-full bg-[#2A2A32] flex items-center p-[2px] transition-colors">
+                          <span class="olen-switch-thumb w-[18px] h-[18px] rounded-full bg-[#9A9AA6] translate-x-0"></span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- IMPULSES BLOCKED TODAY Card -->
+                    <div onclick="simulateImpulseBlocked()" title="Tap to simulate a blocked impulse" class="cursor-pointer rounded-[20px] bg-[#101013] border border-[#222228] p-4 hover:border-[#32323D] transition-colors">
+                      <div class="flex items-center justify-between pb-3 border-b border-[#1E1E24]">
+                        <span class="text-[10px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">
+                          IMPULSES BLOCKED TODAY
+                        </span>
+                        <span id="impulses-total" class="text-[26px] font-light text-[#F5F5F7] leading-none tabular-nums">02</span>
+                      </div>
+                      <div class="pt-3 grid grid-cols-3 text-[10px] font-semibold tracking-[0.1em] text-[#8E8E93] uppercase">
+                        <div class="text-left">REELS <span id="impulses-reels" class="text-[#C7C7CC]">1</span></div>
+                        <div class="text-center">SHORTS <span id="impulses-shorts" class="text-[#C7C7CC]">1</span></div>
+                        <div class="text-right">STORIES <span id="impulses-stories" class="text-[#C7C7CC]">0</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Solid White Pill Button -->
+                    <button type="button" onclick="buyTenMinFreedom()" class="w-full py-3.5 px-4 rounded-full bg-[#F5F5F7] hover:bg-white active:scale-[0.98] text-black font-bold text-[11px] tracking-[0.06em] uppercase transition-all shadow-[0_6px_20px_rgba(255,255,255,0.08)]">
+                      BUY 10 MIN FREEDOM &mdash; -10 OLEN SCORE
+                    </button>
+                  </div>
+
+                  <!-- ==================== TAB 2: STATS ==================== -->
+                  <div id="phone-panel-stats" class="phone-panel hidden space-y-3">
+                    <!-- 2-Column Summary Cards -->
+                    <div class="grid grid-cols-2 gap-2.5">
+                      <div class="rounded-[18px] bg-[#101013] border border-[#222228] p-3.5">
+                        <div class="text-[9.5px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">TODAY</div>
+                        <div class="text-[24px] font-light text-[#F5F5F7] mt-1.5 leading-none">2h 48m</div>
+                        <div class="text-[10.5px] text-[#7D7D87] mt-1.5">Screen time</div>
+                      </div>
+                      <div class="rounded-[18px] bg-[#101013] border border-[#222228] p-3.5">
+                        <div class="text-[9.5px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">7 DAYS</div>
+                        <div class="text-[24px] font-light text-[#F5F5F7] mt-1.5 leading-none">35h 45m</div>
+                        <div class="text-[10.5px] text-[#7D7D87] mt-1.5">Weekly total</div>
+                      </div>
+                    </div>
+
+                    <!-- Two Full-Width Stacked Pill Buttons -->
+                    <button type="button" onclick="phoneToast('Hourly Calendar & History view')" class="w-full py-3 px-4 rounded-full bg-[#101013] border border-[#26262E] hover:border-[#3A3A46] text-[#F5F5F7] text-[12px] font-semibold transition-colors">
+                      Open Hourly Calendar &amp; History &rarr;
+                    </button>
+                    <button type="button" onclick="phoneToast('Weekly Receipt image ready to share')" class="w-full py-3 px-4 rounded-full bg-[#F5F5F7] hover:bg-white text-black text-[12px] font-bold transition-colors">
+                      Share Weekly Receipt &#8599;
+                    </button>
+
+                    <!-- WEEKLY IMPACT Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-3">
+                      <div class="text-[10px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">WEEKLY IMPACT</div>
+
+                      <div class="grid grid-cols-2 gap-3 pb-3 border-b border-[#1E1E24]">
+                        <div>
+                          <div id="stats-blocked-count" class="text-[26px] font-light text-[#F5F5F7] leading-none">5</div>
+                          <div class="text-[10.5px] text-[#7D7D87] mt-1">Blocked impulses</div>
+                        </div>
+                        <div>
+                          <div id="stats-freedom-count" class="text-[26px] font-light text-[#F5F5F7] leading-none">1</div>
+                          <div class="text-[10.5px] text-[#7D7D87] mt-1">Freedom sessions</div>
+                        </div>
+                      </div>
+
+                      <div class="space-y-1">
+                        <div class="text-[14px] font-semibold text-white">15 min saved</div>
+                        <div class="text-[11px] text-[#E8FF00] font-medium">&bull; Equals 1 brisk fresh-air walk (1 km)</div>
+                      </div>
+
+                      <!-- Breakdown Progress Bars -->
+                      <div class="space-y-2.5 pt-1">
+                        <div>
+                          <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-medium text-white">Reels</span>
+                            <span class="font-semibold text-[#E8FF00]">4 pcs - 80%</span>
+                          </div>
+                          <div class="w-full h-[4px] rounded-full bg-[#232329] overflow-hidden">
+                            <div class="h-full rounded-full bg-[#E8FF00]" style="width: 80%;"></div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-medium text-white">YouTube Shorts</span>
+                            <span class="font-semibold text-[#E8FF00]">1 pcs - 20%</span>
+                          </div>
+                          <div class="w-full h-[4px] rounded-full bg-[#232329] overflow-hidden">
+                            <div class="h-full rounded-full bg-[#E8FF00]" style="width: 20%;"></div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-medium text-white">Stories</span>
+                            <span class="text-[#7D7D87]">0 pcs - 0%</span>
+                          </div>
+                          <div class="w-full h-[4px] rounded-full bg-[#232329] overflow-hidden">
+                            <div class="h-full rounded-full bg-[#E8FF00]" style="width: 0%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- RECLAIMED IN REAL LIFE Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-3">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">RECLAIMED IN REAL LIFE</span>
+                        <button type="button" onclick="shuffleRealLife()" class="px-2.5 py-1 rounded-full bg-[#151519] border border-[#2A2A32] text-[10px] font-semibold text-[#E8FF00] hover:border-[#E8FF00]/50 transition-colors">
+                          Shuffle &#8635;
+                        </button>
+                      </div>
+
+                      <!-- Segmented Switch: This Week | 1-Year Pace -->
+                      <div class="grid grid-cols-2 p-[2px] rounded-full bg-[#09090B] border border-[#222228]">
+                        <button id="reclaimed-week-btn" type="button" onclick="setReclaimedMode('week')" class="py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all">
+                          This Week
+                        </button>
+                        <button id="reclaimed-year-btn" type="button" onclick="setReclaimedMode('year')" class="py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] transition-all">
+                          1-Year Pace
+                        </button>
+                      </div>
+
+                      <!-- 3 Dynamic Sub-Cards -->
+                      <div id="reclaimed-cards" class="space-y-2"></div>
+
+                      <button type="button" onclick="phoneToast('60+ Real-Life Equivalents catalog')" class="w-full py-2.5 px-3 rounded-xl bg-[#0D0D10] border border-[#23232A] hover:border-[#383844] text-[11px] font-semibold text-[#F5F5F7] transition-colors">
+                        Explore All 60+ Real-Life Equivalents &rarr;
+                      </button>
+                    </div>
+
+                    <!-- MOST USED APPS Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-3">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">MOST USED APPS</span>
+                        <button type="button" onclick="switchPhoneTab('settings')" class="text-[10px] font-bold tracking-wider text-[#F5F5F7] hover:text-[#E8FF00]">ALL APPS &rarr;</button>
+                      </div>
+
+                      <!-- Segmented Switch: Last 24h | 7 Days -->
+                      <div class="grid grid-cols-2 p-[2px] rounded-full bg-[#09090B] border border-[#222228]">
+                        <button id="apps-24h-btn" type="button" onclick="setAppsRange('24h')" class="py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all">
+                          Last 24h
+                        </button>
+                        <button id="apps-7d-btn" type="button" onclick="setAppsRange('7d')" class="py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] transition-all">
+                          7 Days
+                        </button>
+                      </div>
+
+                      <div class="text-[10.5px] text-[#7D7D87]">
+                        Tap any app below to block or set a daily limit
+                      </div>
+
+                      <div id="most-used-apps-list" class="space-y-2"></div>
+                    </div>
+                  </div>
+
+                  <!-- ==================== TAB 3: SQUAD ==================== -->
+                  <div id="phone-panel-squad" class="phone-panel hidden space-y-3">
+                    <!-- OLEN RANKED 1V1 Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-2.5">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold tracking-[0.14em] text-[#E8FF00] uppercase">OLEN RANKED 1V1</span>
+                        <button type="button" onclick="phoneToast('Lowest 24h screen time wins. Ties broken by unlocks.')" class="px-2.5 py-0.5 rounded-full bg-[#19191F] border border-[#2C2C35] text-[9.5px] font-bold text-[#F5F5F7]">
+                          ELO RULES ?
+                        </button>
+                      </div>
+                      <div class="text-[16px] font-bold text-white leading-snug">Compete for Olen Elo.</div>
+                      <p class="text-[11px] text-[#8E8E93] leading-relaxed">
+                        24h head-to-head. Lowest screen time wins (unlocks break ties). Standard Elo stakes (~+50 / -50 pts) with no 10k cap.
+                      </p>
+                      <div class="px-3 py-2 rounded-xl bg-[#39FF88]/10 border border-[#39FF88]/20 text-[11px] font-semibold text-[#39FF88] tabular-nums">
+                        Elo <span id="squad-elo-value">4 512</span> &middot; Record 0W-0L &middot; Peak 4 644
+                      </div>
+                      <div class="grid grid-cols-2 gap-2 pt-1">
+                        <button type="button" onclick="phoneToast('Searching Olen Ranked 1v1 queue...')" class="py-2.5 px-3 rounded-full bg-[#F5F5F7] hover:bg-white text-black text-[11px] font-bold transition-colors">
+                          Find Ranked Match
+                        </button>
+                        <button type="button" onclick="phoneToast('Enter a Ranked Match code')" class="py-2.5 px-3 rounded-full bg-[#131317] border border-[#2C2C36] text-[#F5F5F7] text-[11px] font-semibold hover:border-white/40 transition-colors">
+                          Ranked Code
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- FRIEND 1V1 DUELS Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-2.5">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold tracking-[0.14em] text-[#E8FF00] uppercase">FRIEND 1V1 DUELS</span>
+                        <span class="text-[10px] font-mono text-[#8E8E93]">24H &middot; 3D &middot; 7D</span>
+                      </div>
+                      <div class="text-[16px] font-bold text-white leading-snug">Challenge a friend 1v1.</div>
+                      <p class="text-[11px] text-[#8E8E93] leading-relaxed">
+                        24h sprint, 3-day clash, or 7-day battle. Lowest screen time wins (unlocks break ties) &mdash; put coffee or sauna on the line.
+                      </p>
+                      <div class="grid grid-cols-2 gap-2 pt-1">
+                        <button type="button" onclick="phoneToast('Created 24h Friend Duel invite link')" class="py-2.5 px-3 rounded-full bg-[#F5F5F7] hover:bg-white text-black text-[11px] font-bold transition-colors">
+                          Start 1v1 Duel
+                        </button>
+                        <button type="button" onclick="phoneToast('Ready to join friend duel code')" class="py-2.5 px-3 rounded-full bg-[#131317] border border-[#2C2C36] text-[#F5F5F7] text-[11px] font-semibold hover:border-white/40 transition-colors">
+                          Join with Code
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- WEEKLY CHALLENGE Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-3">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-semibold tracking-[0.14em] text-[#8E8E93] uppercase">WEEKLY CHALLENGE</span>
+                        <button type="button" onclick="phoneToast('Switch weekly screen-time club')" class="text-[10px] font-bold text-white hover:text-[#E8FF00]">CHANGE &gt;</button>
+                      </div>
+                      <div>
+                        <div class="text-[14px] font-bold tracking-wide text-white uppercase">UNDER 2H 0M CLUB</div>
+                        <p class="text-[11px] text-[#8E8E93] mt-1 leading-relaxed">
+                          Keep daily screen time at or below 120 minutes on 5 days this week.
+                        </p>
+                      </div>
+                      <div class="w-full h-[3px] rounded-full bg-[#1E1E24]"></div>
+                      <!-- 7 Circular Day Pills -->
+                      <div class="grid grid-cols-7 gap-1.5 text-center">
+                        <div class="w-8 h-8 mx-auto rounded-full bg-[#09090B] border border-[#1E1E24] flex items-center justify-center text-[10.5px] font-semibold text-[#7D7D87]">W</div>
+                        <div class="w-8 h-8 mx-auto rounded-full bg-[#09090B] border border-[#1E1E24] flex items-center justify-center text-[10.5px] font-semibold text-[#7D7D87]">T</div>
+                        <div class="w-8 h-8 mx-auto rounded-full bg-[#09090B] border border-[#1E1E24] flex items-center justify-center text-[10.5px] font-semibold text-[#7D7D87]">F</div>
+                        <div class="w-8 h-8 mx-auto rounded-full bg-[#09090B] border border-[#1E1E24] flex items-center justify-center text-[10.5px] font-semibold text-[#7D7D87]">S</div>
+                        <div class="w-8 h-8 mx-auto rounded-full bg-[#09090B] border border-[#1E1E24] flex items-center justify-center text-[10.5px] font-semibold text-[#7D7D87]">S</div>
+                        <div class="w-8 h-8 mx-auto rounded-full bg-[#09090B] border border-[#1E1E24] flex items-center justify-center text-[10.5px] font-semibold text-[#7D7D87]">M</div>
+                        <div class="w-8 h-8 mx-auto rounded-full bg-[#15151A] border border-[#32323D] flex items-center justify-center text-[10.5px] font-bold text-white">T</div>
+                      </div>
+                      <div class="flex items-center justify-between text-[10px] pt-0.5">
+                        <span class="font-semibold text-white">Progress: 0 / 5 days this week</span>
+                        <span class="text-[#8E8E93] font-semibold">REWARD: &#127942; 120M CLUB</span>
+                      </div>
+                    </div>
+
+                    <!-- Create or Join a Squad Card -->
+                    <div class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-2.5">
+                      <div class="text-[14px] font-bold text-white">Create or Join a Squad</div>
+                      <input id="squad-name-input" type="text" placeholder="Squad name" class="w-full px-3.5 py-2.5 rounded-xl bg-[#09090B] border border-[#24242C] text-[12px] text-white placeholder-[#63636A] focus:outline-none focus:border-[#E8FF00]/60" />
+                      <button type="button" onclick="phoneToast('Squad created! Share your 6-digit code.')" class="w-full py-2.5 rounded-full bg-[#F5F5F7] hover:bg-white text-black text-[11.5px] font-bold transition-colors">
+                        Create Squad
+                      </button>
+                      <input id="squad-code-input" type="text" maxlength="6" placeholder="Enter 6-digit invite code" class="w-full px-3.5 py-2.5 rounded-xl bg-[#09090B] border border-[#24242C] text-[12px] text-white placeholder-[#63636A] focus:outline-none focus:border-[#E8FF00]/60" />
+                      <button type="button" onclick="phoneToast('Enter a valid 6-digit Squad invite code')" class="w-full py-2.5 rounded-full bg-[#131317] border border-[#2C2C36] text-[#F5F5F7] text-[11.5px] font-semibold hover:border-white/40 transition-colors">
+                        Join with Code
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- ==================== TAB 4: GUARDIAN ==================== -->
+                  <div id="phone-panel-guardian" class="phone-panel hidden space-y-3">
+                    <!-- Full-Width Segmented Toggle: My Lock | Act as Guardian -->
+                    <div class="grid grid-cols-2 p-[3px] rounded-full bg-[#111114] border border-[#222228]">
+                      <button id="guardian-mylock-btn" type="button" onclick="setGuardianMode('mylock')" class="py-2 rounded-full text-[11.5px] font-bold bg-[#F5F5F7] text-black transition-all">
+                        My Lock
+                      </button>
+                      <button id="guardian-act-btn" type="button" onclick="setGuardianMode('act')" class="py-2 rounded-full text-[11.5px] font-medium text-[#8E8E93] transition-all">
+                        Act as Guardian
+                      </button>
+                    </div>
+
+                    <!-- My Lock Card (Default matching screenshot) -->
+                    <div id="guardian-card-mylock" class="rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-3">
+                      <div class="text-[14.5px] font-bold text-white">Sign In Required</div>
+                      <p class="text-[11.5px] text-[#8E8E93] leading-relaxed">
+                        Sign in to your Olen account to pair Guardians with a verified 6-digit code.
+                      </p>
+                      <button type="button" onclick="phoneToast('Sign in inside Olen Android app to pair a Guardian')" class="w-full py-3 rounded-full bg-[#F5F5F7] hover:bg-white text-black text-[12px] font-bold transition-colors">
+                        Sign In or Create Account
+                      </button>
+                    </div>
+
+                    <!-- Act as Guardian Preview Card -->
+                    <div id="guardian-card-act" class="hidden rounded-[20px] bg-[#101013] border border-[#222228] p-4 space-y-3">
+                      <div class="flex items-center justify-between">
+                        <div class="text-[14.5px] font-bold text-white">Act as Guardian</div>
+                        <span class="font-mono text-[9.5px] px-2 py-0.5 rounded-full bg-[#E8FF00]/12 border border-[#E8FF00]/30 text-[#E8FF00]">VERIFIED 6-DIGIT</span>
+                      </div>
+                      <p class="text-[11.5px] text-[#8E8E93] leading-relaxed">
+                        Approve or deny unlock requests for a friend or partner who paired you as their accountability Guardian.
+                      </p>
+                      <input type="text" maxlength="6" placeholder="Enter partner's 6-digit pairing code" class="w-full px-3.5 py-2.5 rounded-xl bg-[#09090B] border border-[#24242C] text-[12px] text-white placeholder-[#63636A] focus:outline-none focus:border-[#E8FF00]/60" />
+                      <button type="button" onclick="phoneToast('Sign in to accept Guardian pairing requests')" class="w-full py-3 rounded-full bg-[#F5F5F7] hover:bg-white text-black text-[12px] font-bold transition-colors">
+                        Sign In to Pair
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- ==================== TAB 5: SETTINGS ==================== -->
+                  <div id="phone-panel-settings" class="phone-panel hidden space-y-3">
+                    <!-- 2-Column Grid of 10 Dark Rounded Tiles -->
+                    <div class="grid grid-cols-2 gap-2.5">
+                      <!-- 1. Blocked Apps -->
+                      <button type="button" onclick="phoneToast('Blocked Apps: 5/5 free slots active')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E8FF00] text-[13px] font-bold">&#8856;</span>
+                          <span class="text-[10.5px] font-bold text-[#E8FF00]">5/5 free</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Blocked Apps</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">App blocks &amp; daily time limits</div>
+                        </div>
+                      </button>
+
+                      <!-- 2. Shield Packs -->
+                      <button type="button" onclick="phoneToast('Shield Packs: Betting, social, adult & games')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E5E5EA] text-[13px]">&#9672;</span>
+                          <span class="text-[10.5px] font-semibold text-[#8E8E93]">Open &rarr;</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Shield Packs</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">Betting, social, adult &amp; games</div>
+                        </div>
+                      </button>
+
+                      <!-- 3. Night Lock -->
+                      <button type="button" onclick="phoneToast('Night Lock active: 23:00–07:00')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between gap-1">
+                          <span class="w-7 h-7 shrink-0 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E5E5EA] text-[12px]">&#9790;</span>
+                          <span class="text-[9.5px] font-bold text-[#E8FF00] truncate">&bull; ON (23:00-07:0...</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Night Lock</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">Sleep schedule &amp; morning peace</div>
+                        </div>
+                      </button>
+
+                      <!-- 4. Deep Work & Audio -->
+                      <button type="button" onclick="phoneToast('Deep Work & Audio: 4 active rules')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E5E5EA] text-[12px]">&#9673;</span>
+                          <span class="text-[10.5px] font-bold text-white">4 active</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Deep Work &amp; Audio</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">Schedules, Zen screen &amp; podcasts</div>
+                        </div>
+                      </button>
+
+                      <!-- 5. Never Allow -->
+                      <button type="button" onclick="phoneToast('Never Allow — Hard-locked in OLEN PRO')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E5E5EA] text-[12px]">&#10005;</span>
+                          <span class="text-[10.5px] font-bold text-[#E8FF00]">&#128274; PRO</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Never Allow</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">Hard-locked in Night &amp; Deep Work</div>
+                        </div>
+                      </button>
+
+                      <!-- 6. Impulse Brakes -->
+                      <button type="button" onclick="phoneToast('Impulse Brakes: 3 active frictions')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E8FF00] text-[12px]">&#9889;</span>
+                          <span class="text-[10.5px] font-bold text-[#E8FF00]">3 active</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Impulse Brakes</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">Swipes, unlocks, prompts &amp; haptics</div>
+                        </div>
+                      </button>
+
+                      <!-- 7. Web & Vaults -->
+                      <button type="button" onclick="phoneToast('Web & Vaults: Blocked sites & PIN vaults')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E5E5EA] text-[12px]">&#9678;</span>
+                          <span class="text-[10.5px] font-semibold text-[#8E8E93]">NONE</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Web &amp; Vaults</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">Blocked sites, APK &amp; PIN vaults</div>
+                        </div>
+                      </button>
+
+                      <!-- 8. Tamper & Flip -->
+                      <button type="button" onclick="phoneToast('Tamper & Flip: PIN lock armed')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E5E5EA]">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="14"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+                          </span>
+                          <span class="text-[10.5px] font-bold text-white">PIN ON</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Tamper &amp; Flip</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">PIN lock, delay &amp; Flip-to-Focus</div>
+                        </div>
+                      </button>
+
+                      <!-- 9. Account & PRO -->
+                      <button type="button" onclick="phoneToast('OLEN PRO & Guardian Sync')" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#363642] p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E8FF00] text-[13px]">&#9733;</span>
+                          <span class="text-[10.5px] font-bold text-white">Sign In &rarr;</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Account &amp; PRO</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">OLEN PRO &amp; Guardian Sync</div>
+                        </div>
+                      </button>
+
+                      <!-- 10. Privacy & Legal (scrolls page to #privacy!) -->
+                      <button type="button" onclick="scrollToPrivacySection()" class="rounded-[18px] bg-[#101013] border border-[#222228] hover:border-[#E8FF00]/60 p-3.5 flex flex-col justify-between min-h-[118px] text-center transition-colors">
+                        <div class="w-full flex items-center justify-between">
+                          <span class="w-7 h-7 rounded-full bg-[#15151A] border border-[#26262F] flex items-center justify-center text-[#E5E5EA] text-[13px] font-serif">&sect;</span>
+                          <span class="text-[10.5px] font-semibold text-[#8E8E93]">Open</span>
+                        </div>
+                        <div class="pt-3">
+                          <div class="text-[12.5px] font-bold text-white">Privacy &amp; Legal</div>
+                          <div class="text-[10px] text-[#8E8E93] leading-snug mt-0.5">Permissions, policy &amp; delete data</div>
+                        </div>
+                      </button>
+                    </div>
+
+                    <!-- Bottom Full-Width Solid White Pill Button -->
+                    <button type="button" onclick="phoneToast('Settings saved locally on device')" class="w-full py-3.5 px-4 rounded-full bg-[#F5F5F7] hover:bg-white active:scale-[0.98] text-black font-bold text-[12.5px] transition-all">
+                      Save Settings
+                    </button>
+                  </div>
+
+                </div>
+
+                <!-- IN-PHONE MINI TOAST OVERLAY -->
+                <div id="phone-toast" class="pointer-events-none absolute bottom-7 left-3 right-3 z-30 opacity-0 translate-y-2 transition-all duration-200">
+                  <div class="bg-[#18181F]/95 backdrop-blur-md border border-[#E8FF00]/45 text-[#F5F5F7] text-[11px] font-medium px-3 py-2 rounded-xl text-center shadow-xl">
+                    <span id="phone-toast-text">Action completed</span>
+                  </div>
+                </div>
+
+                <!-- 3) BOTTOM ANDROID GESTURE PILL BAR -->
+                <div class="shrink-0 h-5 bg-black flex items-center justify-center z-30">
+                  <div class="w-28 h-[4px] rounded-full bg-[#F5F5F7]/90"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtle Interactive Helper Caption Below Phone -->
+          <div class="mt-3.5 text-center w-full max-w-[356px] font-mono text-[11px] text-slateMuted">
+            Interactive app preview &mdash; tap tabs, toggle shields &amp; scroll inside
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. BENTO FEATURE GRID ==================== -->
+  <section id="features" class="py-24 lg:py-32 border-t border-hairline relative bg-cyber-grid">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl mb-14 space-y-4">
+        <div class="font-mono text-xs font-bold tracking-[0.18em] text-volt uppercase">
+          01 // CORE ENGINE
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-[-0.025em] text-ink">
+          Built to break the loop. <span class="font-serif font-medium text-slateMuted">Not your workflow.</span>
+        </h2>
+        <p class="text-slateMuted text-base sm:text-lg leading-relaxed">
+          Every shield, score mechanic, and accountability lock inside OLEN is designed to stop mindless scrolling the millisecond it starts.
+        </p>
+      </div>
+
+      <!-- 6-Card Asymmetric Bento Grid with Spotlight Border Glow -->
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-5">
+
+        <!-- 1. Algorithm Shields (4 cols) -->
+        <article class="bento-card reveal md:col-span-4 rounded-3xl p-7 sm:p-8 flex flex-col justify-between gap-6">
+          <div class="flex items-start justify-between gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-volt/12 border border-volt/30 flex items-center justify-center text-volt">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            </div>
+            <span class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full bg-obsidian border border-hairline text-volt">
+              ALGORITHM SHIELDS
+            </span>
+          </div>
+          <div class="space-y-3">
+            <h3 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+              Surgical Reels, Shorts &amp; Stories Blocking
+            </h3>
+            <p class="text-slateMuted text-sm sm:text-base leading-relaxed max-w-2xl">
+              Independently block <strong class="text-ink">Instagram &amp; FB Reels</strong>, <strong class="text-ink">YouTube Shorts</strong>, and <strong class="text-ink">Instagram Stories</strong>—without deleting the whole app. Keep messaging and intentional search while cutting out infinite vertical feeds.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-xl bg-obsidian border border-hairline text-ink">Instagram &amp; FB Reels <span class="text-volt ml-1">&bull;</span></span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-xl bg-obsidian border border-hairline text-ink">YouTube Shorts <span class="text-volt ml-1">&bull;</span></span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-xl bg-obsidian border border-hairline text-ink">Instagram Stories <span class="text-slateMuted ml-1">&bull;</span></span>
+          </div>
+        </article>
+
+        <!-- 2. Olen Score & Freedom Economy (2 cols) -->
+        <article class="bento-card reveal md:col-span-2 rounded-3xl p-7 flex flex-col justify-between gap-6">
+          <div class="w-12 h-12 rounded-2xl bg-obsidian border border-hairline flex items-center justify-center text-olenAmber">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="space-y-2.5">
+            <h3 class="text-xl font-bold text-ink tracking-tight">Olen Score &amp; Freedom Economy</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              Earn daily discipline points from low screen time and fewer unlocks. Need a deliberate break? Spend <strong class="text-ink">-10 Olen Score</strong> to buy 10 minutes of Freedom—making every scroll a conscious choice.
+            </p>
+          </div>
+          <div class="flex items-baseline justify-between pt-3 border-t border-hairline/80">
+            <span class="text-3xl font-light text-olenAmber tabular-nums">4 512</span>
+            <span class="font-mono text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-obsidian border border-hairline text-ink">TOP X% GLOBAL</span>
+          </div>
+        </article>
+
+        <!-- 3. Olen Ranked 1v1 & Friend Duels (4 cols) -->
+        <article class="bento-card reveal md:col-span-4 rounded-3xl p-7 sm:p-8 flex flex-col justify-between gap-6">
+          <div class="flex items-start justify-between gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-emeraldNeon/12 border border-emeraldNeon/30 flex items-center justify-center text-emeraldNeon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full bg-emeraldNeon/10 border border-emeraldNeon/30 text-emeraldNeon font-bold">
+              LESS, TOGETHER.
+            </span>
+          </div>
+          <div class="space-y-3">
+            <h3 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+              Olen Ranked 1v1 &amp; Friend Duels
+            </h3>
+            <p class="text-slateMuted text-sm sm:text-base leading-relaxed max-w-2xl">
+              Compete in 24h head-to-head <strong class="text-ink">Olen Ranked 1v1</strong> for uncapped Elo (~+50 / -50 pts), challenge friends to 24h, 3-day, or 7-day duels with coffee or sauna on the line, or join the <strong class="text-ink">Under 2h 0m Club</strong> with your Squad.
+            </p>
+          </div>
+          <div class="grid grid-cols-3 gap-3 pt-1">
+            <div class="rounded-2xl bg-obsidian border border-hairline p-3">
+              <div class="font-mono text-[10px] text-slateMuted">RANKED ELO</div>
+              <div class="font-mono text-xs sm:text-sm font-bold text-emeraldNeon mt-0.5">No 10k Cap</div>
+            </div>
+            <div class="rounded-2xl bg-obsidian border border-hairline p-3">
+              <div class="font-mono text-[10px] text-slateMuted">FRIEND DUELS</div>
+              <div class="font-mono text-xs sm:text-sm font-bold text-ink mt-0.5">24H &middot; 3D &middot; 7D</div>
+            </div>
+            <div class="rounded-2xl bg-obsidian border border-hairline p-3">
+              <div class="font-mono text-[10px] text-slateMuted">TIE-BREAKER</div>
+              <div class="font-mono text-xs sm:text-sm font-bold text-volt mt-0.5">Phone Unlocks</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Guardian Control & Tamper Protection (2 cols) -->
+        <article class="bento-card reveal md:col-span-2 rounded-3xl p-7 flex flex-col justify-between gap-6">
+          <div class="w-12 h-12 rounded-2xl bg-obsidian border border-hairline flex items-center justify-center text-volt">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="space-y-2.5">
+            <h3 class="text-xl font-bold text-ink tracking-tight">Guardian Control &amp; Tamper Lock</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              Pair a trusted friend with a verified 6-digit code, or arm Removal Delay, Guardian PIN, and Flip-to-Focus so late-night impulses cannot bypass your rules.
+            </p>
+          </div>
+          <div class="font-mono text-[11px] text-volt bg-obsidian border border-hairline rounded-xl px-3 py-2 flex items-center justify-between">
+            <span>TAMPER GUARD</span>
+            <span class="text-emeraldNeon">PIN + DELAY</span>
+          </div>
+        </article>
+
+        <!-- 5. Night Lock & Deep Work (3 cols) -->
+        <article class="bento-card reveal md:col-span-3 rounded-3xl p-7 flex flex-col justify-between gap-5">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-obsidian border border-hairline flex items-center justify-center text-volt">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <span class="font-mono text-[11px] text-volt">&bull; 23:00 &ndash; 07:00</span>
+          </div>
+          <div class="space-y-2.5">
+            <h3 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">Night Lock, Deep Work &amp; Audio</h3>
+            <p class="text-slateMuted text-sm sm:text-base leading-relaxed">
+              Protect sleep and morning peace with automated <strong class="text-ink">Night Lock</strong>, one-tap <strong class="text-ink">Deep Work</strong> &amp; <strong class="text-ink">Coffee Break</strong> sessions, Shield Packs (betting, social, adult &amp; games), and an allowlist for music &amp; podcasts.
+            </p>
+          </div>
+        </article>
+
+        <!-- 6. Reclaimed Time Equivalents (3 cols) -->
+        <article class="bento-card reveal md:col-span-3 rounded-3xl p-7 flex flex-col justify-between gap-5">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-obsidian border border-hairline flex items-center justify-center text-emeraldNeon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="font-mono text-[11px] text-slateMuted">60+ EQUIVALENTS</span>
+          </div>
+          <div class="space-y-2.5">
+            <h3 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">Reclaimed Time &amp; Weekly Receipts</h3>
+            <p class="text-slateMuted text-sm sm:text-base leading-relaxed">
+              See exactly what your blocked scrolling turns into in real life—from brisk fresh-air walks and kettlebell circuits to real calls with close friends—projected across both <strong class="text-ink">This Week</strong> and <strong class="text-ink">1-Year Pace</strong>.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. HOW IT WORKS (3 STEPS) ==================== -->
+  <section id="how-it-works" class="py-24 lg:py-28 border-t border-hairline bg-obsidian">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <div class="font-mono text-xs font-bold tracking-[0.18em] text-volt uppercase">
+          02 // HOW IT WORKS
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-[-0.025em] text-ink">
+          Three Steps to Quiet Focus.
+        </h2>
+        <p class="text-slateMuted text-base sm:text-lg">
+          No mandatory sign-up to start blocking. Configure your rules in under a minute.
+        </p>
+      </div>
+
+      <div class="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="hidden md:block absolute top-14 left-[16%] right-[16%] h-px bg-gradient-to-r from-hairline via-volt/50 to-hairline pointer-events-none"></div>
+
+        <!-- Step 1 -->
+        <div class="reveal relative rounded-3xl bg-charcoal border border-hairline p-7 sm:p-8 space-y-5">
+          <div class="w-12 h-12 rounded-2xl bg-obsidian border border-volt/40 flex items-center justify-center font-mono font-bold text-volt text-sm shadow-[0_0_20px_rgba(244,255,0,0.12)]">
+            01
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-xl font-bold text-ink">Install &amp; Choose Rules</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              Pick the apps, daily limits, Algorithm Shields (Reels, Shorts, Stories), Night Lock hours, and distracting websites you want neutralized.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal relative rounded-3xl bg-charcoal border border-hairline p-7 sm:p-8 space-y-5">
+          <div class="w-12 h-12 rounded-2xl bg-obsidian border border-emeraldNeon/40 flex items-center justify-center font-mono font-bold text-emeraldNeon text-sm shadow-[0_0_20px_rgba(57,255,136,0.12)]">
+            02
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-xl font-bold text-ink">Enable Local Accessibility Shield</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              Grant Usage Access and OLEN's strictly scoped on-device Accessibility engine. Everything runs locally in memory—zero screen content ever leaves your phone.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="reveal relative rounded-3xl bg-charcoal border border-hairline p-7 sm:p-8 space-y-5">
+          <div class="w-12 h-12 rounded-2xl bg-obsidian border border-volt/40 flex items-center justify-center font-mono font-bold text-volt text-sm shadow-[0_0_20px_rgba(244,255,0,0.12)]">
+            03
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-xl font-bold text-ink">Compete, Track &amp; Reclaim Your Time</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              Watch your Olen Score climb, challenge friends in 1v1 duels or Olen Ranked Elo, and see every reclaimed minute translated into real-world life.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. LOCAL-FIRST PRIVACY ARCHITECTURE ==================== -->
+  <section id="privacy-architecture" class="py-24 lg:py-28 border-t border-hairline bg-charcoal/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal rounded-[2rem] bg-card border border-emeraldNeon/30 p-7 sm:p-10 lg:p-12 shadow-[0_0_60px_rgba(57,255,136,0.05)] space-y-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="space-y-4 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emeraldNeon/12 border border-emeraldNeon/35 text-emeraldNeon font-mono text-xs font-bold tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-emeraldNeon"></span>
+              LOCAL-FIRST PRIVACY ARCHITECTURE
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.1] tracking-tight text-ink">
+              Zero keylogging. Zero screenshots. Zero ads.
+            </h2>
+            <p class="text-slateMuted text-sm sm:text-base leading-relaxed">
+              Olen separates sensitive on-device blocking from optional social cloud sync with a strict firewall—your screen content and app inventory never leave your Android phone.
+            </p>
+          </div>
+          <a href="#privacy" class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-volt hover:underline shrink-0">
+            <span>Read Full Privacy Policy</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Visual Split Diagram -->
+        <div class="grid grid-cols-1 lg:grid-cols-11 gap-5 items-stretch">
+          <!-- Left: Your Android Device (100% On-Device) -->
+          <div class="lg:col-span-5 rounded-2xl bg-obsidian border border-emeraldNeon/40 p-6 flex flex-col justify-between gap-5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-mono text-xs font-bold tracking-wider text-emeraldNeon uppercase">YOUR ANDROID DEVICE</span>
+              <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-emeraldNeon/15 text-emeraldNeon border border-emeraldNeon/30">100% ON-DEVICE</span>
+            </div>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-charcoal border border-hairline">
+                <span class="text-sm font-medium text-ink">App Blocking &amp; Reels/Shorts Detection</span>
+                <span class="font-mono text-[10px] text-emeraldNeon">IN-MEMORY</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-xl bg-charcoal border border-hairline">
+                <span class="text-sm font-medium text-ink">Browser URL Filtering</span>
+                <span class="font-mono text-[10px] text-emeraldNeon">LOCAL ONLY</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-xl bg-charcoal border border-hairline">
+                <span class="text-sm font-medium text-ink">Daily Screen Time &amp; Installed Apps</span>
+                <span class="font-mono text-[10px] text-emeraldNeon">NEVER UPLOADED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Firewall Divider -->
+          <div class="lg:col-span-1 flex lg:flex-col items-center justify-center gap-2 py-2">
+            <div class="h-px lg:h-12 w-full lg:w-px bg-hairline"></div>
+            <div class="px-3 py-1.5 rounded-xl bg-charcoal border border-volt/40 text-volt font-mono text-[10px] font-bold tracking-widest uppercase whitespace-nowrap">
+              OPT-IN ONLY
+            </div>
+            <div class="h-px lg:h-12 w-full lg:w-px bg-hairline"></div>
+          </div>
+
+          <!-- Right: Optional Cloud (Supabase) -->
+          <div class="lg:col-span-5 rounded-2xl bg-obsidian border border-hairline p-6 flex flex-col justify-between gap-5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-mono text-xs font-bold tracking-wider text-volt uppercase">OPTIONAL CLOUD (SUPABASE)</span>
+              <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-volt/12 text-volt border border-volt/30">MINIMAL SYNC</span>
+            </div>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-charcoal border border-hairline">
+                <span class="text-sm font-medium text-ink">Account Sync &amp; Guardian Pairing</span>
+                <span class="font-mono text-[10px] text-slateMuted">IF SIGNED IN</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-xl bg-charcoal border border-hairline">
+                <span class="text-sm font-medium text-ink">Squads &amp; Ranked 1v1 Standings</span>
+                <span class="font-mono text-[10px] text-slateMuted">IF IN MATCH</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-xl bg-charcoal border border-hairline">
+                <span class="text-sm font-medium text-ink">Global Percentile Badge</span>
+                <span class="font-mono text-[10px] text-volt">ANON SHA-256</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. INTERACTIVE FAQ ACCORDION ==================== -->
+  <section id="faq" class="py-24 lg:py-28 border-t border-hairline bg-obsidian">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center mb-14 space-y-4">
+        <div class="font-mono text-xs font-bold tracking-[0.18em] text-volt uppercase">
+          03 // FAQ
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-[-0.025em] text-ink">
+          Straight Answers.
+        </h2>
+      </div>
+
+      <div class="reveal space-y-3" id="faq-list">
+        <!-- FAQ 1: AccessibilityService Safety -->
+        <div class="faq-item rounded-2xl bg-charcoal border border-hairline overflow-hidden" data-open="true">
+          <button type="button" class="faq-trigger w-full px-6 py-5 flex items-center justify-between gap-4 text-left">
+            <span class="font-semibold text-base sm:text-lg text-ink">Is Olen's AccessibilityService permission safe?</span>
+            <svg class="faq-chevron w-5 h-5 text-volt shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner px-6 pb-5 text-sm sm:text-base text-slateMuted leading-relaxed">
+              Yes. Olen's AccessibilityService is technically restricted to window-state, content-change, scroll, selection, and click events needed to detect distracting apps, Reels/Shorts feeds, and browser URL bars. It never subscribes to text input events, never records keystrokes or passwords, never takes screenshots, and processes 100% of data locally in memory on your Android device.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2: Battery Usage -->
+        <div class="faq-item rounded-2xl bg-charcoal border border-hairline overflow-hidden" data-open="false">
+          <button type="button" class="faq-trigger w-full px-6 py-5 flex items-center justify-between gap-4 text-left">
+            <span class="font-semibold text-base sm:text-lg text-ink">How much battery does Olen use in the background?</span>
+            <svg class="faq-chevron w-5 h-5 text-volt shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner px-6 pb-5 text-sm sm:text-base text-slateMuted leading-relaxed">
+              Almost none. Built in native Kotlin, Olen only evaluates scoped UI events while your screen is awake and automatically suspends background tickers and sensors the moment your display locks.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3: Guardian PIN / Removal Delay -->
+        <div class="faq-item rounded-2xl bg-charcoal border border-hairline overflow-hidden" data-open="false">
+          <button type="button" class="faq-trigger w-full px-6 py-5 flex items-center justify-between gap-4 text-left">
+            <span class="font-semibold text-base sm:text-lg text-ink">How do Guardian PIN and Removal Delay work?</span>
+            <svg class="faq-chevron w-5 h-5 text-volt shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner px-6 pb-5 text-sm sm:text-base text-slateMuted leading-relaxed">
+              Both are 100% optional commitment features. Removal Delay introduces a cooling-off countdown before strict protections can be disabled, while Guardian Control lets you pair a trusted partner via a verified 6-digit code so they hold the key to unlocking your strict rules.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4: Olen Ranked 1v1 -->
+        <div class="faq-item rounded-2xl bg-charcoal border border-hairline overflow-hidden" data-open="false">
+          <button type="button" class="faq-trigger w-full px-6 py-5 flex items-center justify-between gap-4 text-left">
+            <span class="font-semibold text-base sm:text-lg text-ink">How does Olen Ranked 1v1 scoring work?</span>
+            <svg class="faq-chevron w-5 h-5 text-volt shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner px-6 pb-5 text-sm sm:text-base text-slateMuted leading-relaxed">
+              Olen Ranked 1v1 matches you head-to-head for 24 hours. The player with the lowest screen time wins (phone unlocks break ties), earning standard Elo stakes (~+50 / -50 pts) with no 10k cap. You can also launch private 24h, 3-day, or 7-day Friend 1v1 Duels anytime.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5: Free vs PRO -->
+        <div class="faq-item rounded-2xl bg-charcoal border border-hairline overflow-hidden" data-open="false">
+          <button type="button" class="faq-trigger w-full px-6 py-5 flex items-center justify-between gap-4 text-left">
+            <span class="font-semibold text-base sm:text-lg text-ink">What is included in Free vs OLEN PRO?</span>
+            <svg class="faq-chevron w-5 h-5 text-volt shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner px-6 pb-5 text-sm sm:text-base text-slateMuted leading-relaxed">
+              Olen Free gives you 5 blocked apps, Algorithm Shields, Olen Score, core analytics, and zero ads. Optional <strong class="text-ink">OLEN PRO</strong> via Google Play Billing unlocks unlimited app blocks, hard-locked <strong class="text-ink">Never Allow</strong> lists for Night &amp; Deep Work, advanced Impulse Brakes, and full Guardian Sync.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. FULL GOOGLE PLAY-COMPLIANT PRIVACY POLICY & DATA DELETION ==================== -->
+  <section id="privacy" class="py-24 lg:py-28 border-t border-hairline bg-[#0A0A0F] scroll-mt-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Policy Header -->
+      <div class="mb-10 space-y-3">
+        <div class="font-mono text-xs font-bold tracking-[0.18em] text-volt uppercase">
+          OLEN // DIGITAL WELLBEING &amp; FOCUS
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-[-0.025em] text-ink">
+          Privacy Policy
+        </h2>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slateMuted">
+          <span>App: <strong class="text-ink">Olen</strong> (<code class="font-mono text-xs px-1.5 py-0.5 rounded bg-card border border-hairline text-ink">app.olen.focus</code>)</span>
+          <span>&middot;</span>
+          <span>Effective Date: <strong class="text-ink">November 24, 2026</strong></span>
+        </div>
+
+        <div class="flex flex-wrap gap-2 pt-3">
+          <a href="#accessibility" class="font-mono text-[11px] px-3 py-1.5 rounded-xl bg-card border border-volt/35 text-volt hover:bg-volt/10 transition-colors">
+            #AccessibilityService API
+          </a>
+          <a href="#data-deletion" class="font-mono text-[11px] px-3 py-1.5 rounded-xl bg-card border border-emeraldNeon/35 text-emeraldNeon hover:bg-emeraldNeon/10 transition-colors">
+            #Data Deletion
+          </a>
+          <a href="#privacy-contact" class="font-mono text-[11px] px-3 py-1.5 rounded-xl bg-card border border-hairline text-slateMuted hover:text-ink transition-colors">
+            #Contact Olen App
+          </a>
+        </div>
+      </div>
+
+      <!-- Policy Sections Directly Visible in DOM -->
+      <div class="space-y-5">
+
+        <!-- Section 1: Overview -->
+        <section class="rounded-2xl bg-card border border-hairline p-6 sm:p-7 space-y-3">
+          <h3 class="text-xl font-bold text-white">1. Overview</h3>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            This Privacy Policy explains how <strong class="text-white">Olen App</strong> handles information when you use the <strong class="text-white">Olen</strong> Android application (package ID: <code class="font-mono text-xs bg-obsidian px-1.5 py-0.5 rounded border border-hairline text-ink">app.olen.focus</code>).
+          </p>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            Olen is designed with a <strong class="text-white">local-first privacy architecture</strong>. App blocking, short-form video blocking, website filtering, and daily screen time calculations run strictly on your device. We never sell your personal data and never display third-party behavioral ads.
+          </p>
+        </section>
+
+        <!-- Section 2: Android AccessibilityService API Disclosure -->
+        <section id="accessibility" class="rounded-2xl bg-card border border-volt/40 p-6 sm:p-7 space-y-3 scroll-mt-24 shadow-[0_0_32px_rgba(244,255,0,0.04)]">
+          <div class="inline-block bg-emeraldNeon/12 text-emeraldNeon border border-emeraldNeon/30 font-mono text-xs font-bold px-3 py-1 rounded-full tracking-wider">
+            100% ON-DEVICE PROCESSING
+          </div>
+          <h3 class="text-xl font-bold text-white">2. Android AccessibilityService API Disclosure</h3>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            Olen uses the Android <strong class="text-white">AccessibilityService API</strong> as its core focus and blocking engine. When enabled by you, this service operates in the background—even when Olen is closed or not actively open—for the following strictly limited purposes:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-[15px] leading-relaxed text-[#D8D8E4]">
+            <li><strong class="text-white">App &amp; Short-Form Video Blocking:</strong> Detects the currently active app package name and short-form video feeds (such as Instagram Reels, YouTube Shorts, and Stories) so Olen can close or interrupt distracting content you chose to restrict.</li>
+            <li><strong class="text-white">Website Filtering:</strong> Inspects the visible URL bar in supported web browsers solely to check domains against your personal blocklist.</li>
+            <li><strong class="text-white">Optional Commitment Lock:</strong> If you explicitly activate a Removal Delay or Guardian PIN lock, detects when Android Settings is opened to uphold your chosen commitment until the timer expires or your PIN is entered.</li>
+          </ul>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            <strong class="text-white">Strict Privacy Guarantee:</strong> All AccessibilityService inspection runs exclusively in memory on your device. Olen <strong class="text-white">never</strong> records keystrokes, reads passwords or private messages, captures screenshots, or transmits any screen content or browsing history to any server or third party.
+          </p>
+        </section>
+
+        <!-- Section 3: Other Android Permissions Used -->
+        <section class="rounded-2xl bg-card border border-hairline p-6 sm:p-7 space-y-3">
+          <h3 class="text-xl font-bold text-white">3. Other Android Permissions Used</h3>
+          <ul class="list-disc pl-5 space-y-2 text-[15px] leading-relaxed text-[#D8D8E4]">
+            <li><strong class="text-white">Usage Access (<code class="font-mono text-xs bg-obsidian px-1.5 py-0.5 rounded border border-hairline text-ink">PACKAGE_USAGE_STATS</code>):</strong> Used on-device to measure your screen time, phone unlocks, and night usage to calculate your Olen Score and 1v1 match standings.</li>
+            <li><strong class="text-white">Installed Apps List (<code class="font-mono text-xs bg-obsidian px-1.5 py-0.5 rounded border border-hairline text-ink">QUERY_ALL_PACKAGES</code>):</strong> Used locally to display your installed applications so you can select which apps to block, limit, or include in the optional Olen Zen Launcher. Your app list is not uploaded to our servers.</li>
+            <li><strong class="text-white">Notification Access (Optional):</strong> Used locally if you enable Notification Batching to hold non-urgent notifications during focus periods. Notification contents are never transmitted off your device.</li>
+            <li><strong class="text-white">Activity Recognition &amp; Location (Optional):</strong> Used locally only if you enable optional movement/step challenges (e.g., Walk for Freedom) or location-based focus rules.</li>
+            <li><strong class="text-white">Device Administrator (Optional):</strong> Used only if you explicitly enable optional lock protection features.</li>
+          </ul>
+        </section>
+
+        <!-- Section 4: Data Stored in the Cloud (Optional Features) -->
+        <section class="rounded-2xl bg-card border border-hairline p-6 sm:p-7 space-y-3">
+          <h3 class="text-xl font-bold text-white">4. Data Stored in the Cloud (Optional Features)</h3>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            If you use Olen's optional cloud, social, or competitive features, minimal data is synced to our backend infrastructure (powered by <strong class="text-white">Supabase</strong>):
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-[15px] leading-relaxed text-[#D8D8E4]">
+            <li><strong class="text-white">Olen Account &amp; Cloud Backup (Optional):</strong> If you sign in, we store your account identifier (email/auth ID) and your focus settings/score backup so you can restore them across devices.</li>
+            <li><strong class="text-white">Squads, Friend 1v1 Duels &amp; Olen Ranked 1v1 (Optional):</strong> If you join a Squad, 1v1 Duel, or Ranked match, we sync your chosen display nickname, Olen Score / Elo rating, match screen-time minutes, and unlock count so your match standings can be calculated and shown to your opponent or squad members.</li>
+            <li><strong class="text-white">Live Global Percentile Rank (Anonymous):</strong> To calculate your "TOP X%" badge, Olen sends only a randomly generated, one-way SHA-256 anonymous device hash and your numeric Olen Score. This hash cannot be traced back to your identity or hardware ID.</li>
+          </ul>
+        </section>
+
+        <!-- Section 5: Third-Party Services (Supabase & Google Play Billing ONLY) -->
+        <section class="rounded-2xl bg-card border border-hairline p-6 sm:p-7 space-y-3">
+          <h3 class="text-xl font-bold text-white">5. Third-Party Services</h3>
+          <ul class="list-disc pl-5 space-y-2 text-[15px] leading-relaxed text-[#D8D8E4]">
+            <li><strong class="text-white">Supabase:</strong> Cloud database and authentication provider used for optional account sync, Squads, 1v1 Duels, Ranked matchmaking, and anonymous percentile ranking.</li>
+            <li><strong class="text-white">Google Play Billing:</strong> Processes optional Olen PRO subscriptions and in-app purchases. We do not receive or store your payment card details.</li>
+          </ul>
+        </section>
+
+        <!-- Section 6: Data Retention & Account Deletion (#data-deletion) -->
+        <section id="data-deletion" class="rounded-2xl bg-card border border-emeraldNeon/35 p-6 sm:p-7 space-y-3 scroll-mt-24">
+          <h3 class="text-xl font-bold text-white">6. Data Retention &amp; Account Deletion</h3>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            Local app data remains solely on your device and is permanently removed if you clear Olen's app storage or uninstall the app.
+          </p>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            <strong class="text-white">How to delete your cloud data or Olen account:</strong>
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-[15px] leading-relaxed text-[#D8D8E4]">
+            <li><strong class="text-white">In-App:</strong> Open <strong class="text-white">Olen &rarr; Settings / Account</strong> and use the account/cloud data deletion option to erase your synced profile, backups, and match telemetry.</li>
+            <li><strong class="text-white">By Email Request:</strong> Email us at <a href="mailto:app.olenapp@gmail.com" class="text-volt hover:underline">app.olenapp@gmail.com</a> with the subject <code class="font-mono text-xs bg-obsidian px-1.5 py-0.5 rounded border border-hairline text-ink">OLEN Data Deletion Request</code> and include the email address or Squad nickname associated with your account. We will permanently delete all associated cloud records within <strong class="text-white">7 days</strong> and confirm once completed.</li>
+          </ul>
+        </section>
+
+        <!-- Section 7: Children's Privacy -->
+        <section class="rounded-2xl bg-card border border-hairline p-6 sm:p-7 space-y-3">
+          <h3 class="text-xl font-bold text-white">7. Children's Privacy</h3>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            Olen is not directed to children under the age of 13 (or 16 in the European Economic Area). We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can delete it immediately.
+          </p>
+        </section>
+
+        <!-- Section 8: Your Privacy Rights (GDPR & Global) -->
+        <section class="rounded-2xl bg-card border border-hairline p-6 sm:p-7 space-y-3">
+          <h3 class="text-xl font-bold text-white">8. Your Privacy Rights (GDPR &amp; Global)</h3>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            Depending on your location (including the EU/EEA under GDPR), you have the right to access, correct, export, or request deletion of any personal data we store, as well as the right to withdraw consent at any time by disabling permissions in Android Settings or deleting your account.
+          </p>
+        </section>
+
+        <!-- Section 9: Changes & Contact -->
+        <section id="privacy-contact" class="rounded-2xl bg-card border border-hairline p-6 sm:p-7 space-y-3 scroll-mt-24">
+          <h3 class="text-xl font-bold text-white">9. Changes &amp; Contact</h3>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            We may update this Privacy Policy from time to time as Olen evolves. The latest version will always be published at this URL with an updated Effective Date.
+          </p>
+          <p class="text-[15px] leading-relaxed text-[#D8D8E4]">
+            If you have any questions about this Privacy Policy or your data, contact us at:<br />
+            <strong class="text-white">Email:</strong> <a href="mailto:app.olenapp@gmail.com" class="text-volt hover:underline">app.olenapp@gmail.com</a><br />
+            <strong class="text-white">Developer:</strong> Olen App
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 8. DIRECT SUPPORT & FOOTER ==================== -->
+  <section id="support" class="py-16 lg:py-20 border-t border-hairline bg-obsidian">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal rounded-3xl bg-charcoal border border-hairline p-7 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="space-y-3 max-w-xl">
+          <div class="font-mono text-xs font-bold tracking-[0.18em] text-volt uppercase">
+            DIRECT SUPPORT
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+            Questions, feedback, or data requests?
+          </h2>
+          <p class="text-slateMuted text-sm sm:text-base leading-relaxed">
+            Contact <strong class="text-ink">Olen App</strong> directly for support, feature suggestions, or account deletion requests.
+          </p>
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-slateMuted bg-obsidian px-3 py-1.5 rounded-xl border border-hairline">
+            <span>PACKAGE ID:</span>
+            <span class="text-ink font-semibold">app.olen.focus</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
+          <a href="mailto:app.olenapp@gmail.com" class="inline-flex items-center justify-center gap-2.5 bg-volt hover:bg-[#e6f000] text-obsidian font-bold text-sm px-6 py-3.5 rounded-full transition-all shadow-[0_0_24px_rgba(244,255,0,0.18)]">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>app.olenapp@gmail.com</span>
+          </a>
+
+          <button type="button" onclick="copySupportEmail()" class="inline-flex items-center justify-center gap-2 bg-obsidian hover:bg-card border border-hairline hover:border-volt/40 text-ink font-mono text-xs font-semibold px-6 py-3.5 rounded-full transition-all active:scale-[0.98]">
+            <svg class="w-4 h-4 text-volt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copy-email-label">Copy Support Email</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-hairline bg-[#060609] py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <svg class="w-5 h-6 shrink-0" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 2C2.343 2 1 3.343 1 5V27C1 28.657 2.343 30 4 30H14V2H4Z" fill="#F5F5F7"/>
+          <path d="M14 2H24C25.657 2 27 3.343 27 5V27C27 28.657 25.657 30 24 30H14V2Z" fill="#9A9AA6"/>
+          <path d="M17.2 0.8L8.4 16.3H14.1L10.8 31.2L20.1 14.8H14.3L17.2 0.8Z" fill="#F4FF00" stroke="#060609" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <span class="font-sans font-bold tracking-[0.22em] text-ink">OLEN</span>
+        <span class="text-hairline">|</span>
+        <span class="font-mono text-xs text-slateMuted">evadere.store</span>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-mono uppercase tracking-wider text-slateMuted">
+        <a href="#privacy" class="hover:text-volt transition-colors">Privacy Policy</a>
+        <a href="#data-deletion" class="hover:text-emeraldNeon transition-colors">Data Deletion</a>
+        <a href="mailto:app.olenapp@gmail.com" class="hover:text-ink transition-colors">app.olenapp@gmail.com</a>
+      </div>
+
+      <div class="text-xs text-slateMuted text-center md:text-right">
+        &copy; 2026 OLEN &middot; Live in the moment.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== PURE VANILLA JS ENGINE ==================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------------------------------------------------------
+         1. GLOBAL PAGE TOAST & CLIPBOARD UTILITIES
+         --------------------------------------------------------- */
+      let toastTimer = null;
+      window.showToast = function (message, isAlert) {
+        const toast = document.getElementById('toast');
+        const msg = document.getElementById('toast-message');
+        const dot = document.getElementById('toast-dot');
+        if (!toast || !msg) return;
+        msg.textContent = message;
+        if (dot) {
+          dot.className = isAlert
+            ? 'w-2 h-2 rounded-full bg-chaosRed shrink-0'
+            : 'w-2 h-2 rounded-full bg-volt shrink-0';
+        }
+        toast.classList.remove('opacity-0', 'translate-y-4');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', 'translate-y-4');
+        }, 3200);
+      };
+
+      window.triggerPlayStoreToast = function () {
+        window.showToast('Coming soon to Google Play — app.olen.focus');
+      };
+
+      window.copySupportEmail = function () {
+        const email = 'app.olenapp@gmail.com';
+        const label = document.getElementById('copy-email-label');
+        try {
+          const el = document.createElement('textarea');
+          el.value = email;
+          el.setAttribute('readonly', '');
+          el.style.position = 'fixed';
+          el.style.opacity = '0';
+          document.body.appendChild(el);
+          el.select();
+          el.setSelectionRange(0, 99999);
+          document.execCommand('copy');
+          document.body.removeChild(el);
+          if (label) {
+            label.textContent = 'Copied!';
+            setTimeout(() => { label.textContent = 'Copy Support Email'; }, 2200);
+          }
+          window.showToast('Copied app.olenapp@gmail.com to clipboard');
+        } catch (err) {
+          window.showToast('Support email: app.olenapp@gmail.com');
+        }
+      };
+
+      /* ---------------------------------------------------------
+         2. MOBILE NAVBAR MENU
+         --------------------------------------------------------- */
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+
+      function setMobileMenu(open) {
+        if (!mobileMenu || !mobileBtn) return;
+        mobileMenu.classList.toggle('hidden', !open);
+        mobileBtn.setAttribute('aria-expanded', String(open));
+        if (iconOpen && iconClose) {
+          iconOpen.classList.toggle('hidden', open);
+          iconClose.classList.toggle('hidden', !open);
+        }
+      }
+
+      if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+          setMobileMenu(mobileBtn.getAttribute('aria-expanded') !== 'true');
+        });
+      }
+      document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', () => setMobileMenu(false));
+      });
+
+      /* ---------------------------------------------------------
+         3. SCROLL REVEAL, BENTO SPOTLIGHT & FAQ ACCORDION
+         --------------------------------------------------------- */
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealEls = document.querySelectorAll('.reveal');
+
+      if (!reducedMotion && 'IntersectionObserver' in window) {
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -24px 0px' }
+        );
+        revealEls.forEach((el) => obs.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('visible'));
+      }
+
+      document.querySelectorAll('.bento-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+          card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+        });
+      });
+
+      document.querySelectorAll('.faq-trigger').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          if (!item) return;
+          const isOpen = item.getAttribute('data-open') === 'true';
+          document.querySelectorAll('.faq-item').forEach((other) => other.setAttribute('data-open', 'false'));
+          item.setAttribute('data-open', String(!isOpen));
+        });
+      });
+
+      /* ---------------------------------------------------------
+         4. INTERACTIVE 5-TAB OLEN ANDROID APP MOCKUP ENGINE
+         --------------------------------------------------------- */
+      let olenScore = 4512;
+      let todayDelta = 73;
+      let impulses = { reels: 1, shorts: 1, stories: 0 };
+      let freedomSessions = 1;
+      let quickActions = { deepwork: false, coffee: false };
+      let reclaimedMode = 'week';
+      let reclaimedSetIdx = 0;
+      let appsRange = '24h';
+      let phoneToastTimer = null;
+
+      function formatScore(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      }
+
+      window.phoneToast = function (text) {
+        const el = document.getElementById('phone-toast');
+        const txt = document.getElementById('phone-toast-text');
+        if (!el || !txt) return;
+        txt.textContent = text;
+        el.classList.remove('opacity-0', 'translate-y-2');
+        el.classList.add('opacity-100', 'translate-y-0');
+        clearTimeout(phoneToastTimer);
+        phoneToastTimer = setTimeout(() => {
+          el.classList.remove('opacity-100', 'translate-y-0');
+          el.classList.add('opacity-0', 'translate-y-2');
+        }, 2500);
+      };
+
+      // Switch between Home | Stats | Squad | Guardian | Settings
+      window.switchPhoneTab = function (tabName) {
+        const tabs = ['home', 'stats', 'squad', 'guardian', 'settings'];
+        tabs.forEach((t) => {
+          const header = document.getElementById('phone-header-' + t);
+          const panel = document.getElementById('phone-panel-' + t);
+          if (header) header.classList.toggle('hidden', t !== tabName);
+          if (panel) panel.classList.toggle('hidden', t !== tabName);
+        });
+
+        document.querySelectorAll('.phone-tab-btn').forEach((btn) => {
+          const isActive = btn.getAttribute('data-phone-tab') === tabName;
+          btn.setAttribute('aria-selected', String(isActive));
+          if (isActive) {
+            btn.className = 'phone-tab-btn py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all';
+          } else {
+            btn.className = 'phone-tab-btn py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] hover:text-white transition-all';
+          }
+        });
+
+        const viewport = document.getElementById('phone-viewport');
+        if (viewport) viewport.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      document.querySelectorAll('.phone-tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          window.switchPhoneTab(btn.getAttribute('data-phone-tab'));
+        });
+      });
+
+      // Home: Quick Action cards (Deep Work, Coffee Break, Audio)
+      window.toggleQuickAction = function (key) {
+        if (key === 'audio') {
+          window.phoneToast('Audio allowlist: Spotify & Podcasts');
+          return;
+        }
+        quickActions[key] = !quickActions[key];
+        const card = document.getElementById('qa-' + key);
+        const sub = document.getElementById('qa-' + key + '-sub');
+        const icon = document.getElementById('qa-' + key + '-icon');
+        if (!card || !sub) return;
+
+        if (quickActions[key]) {
+          card.classList.remove('border-[#222228]');
+          card.classList.add('border-[#E8FF00]/75', 'bg-[#171710]');
+          if (icon) icon.classList.replace('text-white', 'text-[#E8FF00]');
+          sub.classList.replace('text-[#8E8E93]', 'text-[#E8FF00]');
+          sub.textContent = key === 'deepwork' ? 'Active 45m' : '14:59 left';
+          window.phoneToast(key === 'deepwork' ? 'Deep Work session active (45m)' : 'Coffee Break started (15 min)');
+        } else {
+          card.classList.add('border-[#222228]');
+          card.classList.remove('border-[#E8FF00]/75', 'bg-[#171710]');
+          if (icon) icon.classList.replace('text-[#E8FF00]', 'text-white');
+          sub.classList.replace('text-[#E8FF00]', 'text-[#8E8E93]');
+          sub.textContent = key === 'deepwork' ? 'Start' : '15 min';
+          window.phoneToast(key === 'deepwork' ? 'Deep Work paused' : 'Coffee Break ended');
+        }
+      };
+
+      // Home: Algorithm Shields authentic pill toggles
+      window.toggleAlgorithmShield = function (btn, label) {
+        const isOn = btn.getAttribute('aria-checked') === 'true';
+        const next = !isOn;
+        btn.setAttribute('aria-checked', String(next));
+        const thumb = btn.querySelector('.olen-switch-thumb');
+
+        if (next) {
+          btn.classList.remove('bg-[#2A2A32]');
+          btn.classList.add('bg-[#5B6012]');
+          if (thumb) {
+            thumb.classList.remove('bg-[#9A9AA6]', 'translate-x-0');
+            thumb.classList.add('bg-[#F4FF00]', 'translate-x-[18px]', 'shadow-[0_0_8px_rgba(244,255,0,0.45)]');
+          }
+          window.phoneToast(label + ' shield armed');
+        } else {
+          btn.classList.remove('bg-[#5B6012]');
+          btn.classList.add('bg-[#2A2A32]');
+          if (thumb) {
+            thumb.classList.remove('bg-[#F4FF00]', 'translate-x-[18px]', 'shadow-[0_0_8px_rgba(244,255,0,0.45)]');
+            thumb.classList.add('bg-[#9A9AA6]', 'translate-x-0');
+          }
+          window.phoneToast(label + ' shield paused');
+        }
+      };
+
+      // Home: Impulses blocked live increment on tap
+      window.simulateImpulseBlocked = function () {
+        if (impulses.reels <= impulses.shorts) {
+          impulses.reels += 1;
+        } else {
+          impulses.shorts += 1;
+        }
+        const total = impulses.reels + impulses.shorts + impulses.stories;
+        const totEl = document.getElementById('impulses-total');
+        const rEl = document.getElementById('impulses-reels');
+        const shEl = document.getElementById('impulses-shorts');
+        const stEl = document.getElementById('impulses-stories');
+        if (totEl) totEl.textContent = String(total).padStart(2, '0');
+        if (rEl) rEl.textContent = String(impulses.reels);
+        if (shEl) shEl.textContent = String(impulses.shorts);
+        if (stEl) stEl.textContent = String(impulses.stories);
+
+        // Also bump weekly blocked count in Stats
+        const statsBlocked = document.getElementById('stats-blocked-count');
+        if (statsBlocked) statsBlocked.textContent = String(3 + total);
+        window.phoneToast('Impulse intercepted & closed (+2 Olen Score)');
+        olenScore += 2;
+        todayDelta += 2;
+        syncScoreDisplays();
+      };
+
+      function syncScoreDisplays() {
+        const formatted = formatScore(olenScore);
+        const homeScore = document.getElementById('phone-olen-score');
+        const squadElo = document.getElementById('squad-elo-value');
+        const deltaEl = document.getElementById('phone-score-delta');
+        const barEl = document.getElementById('phone-score-bar');
+        if (homeScore) homeScore.textContent = formatted;
+        if (squadElo) squadElo.textContent = formatted;
+        if (deltaEl) deltaEl.textContent = (todayDelta >= 0 ? '+' : '') + todayDelta + ' today';
+        if (barEl) {
+          const pct = Math.max(8, Math.min(96, ((olenScore % 1000) / 1000) * 85));
+          barEl.style.width = pct.toFixed(0) + '%';
+        }
+      }
+
+      // Home: BUY 10 MIN FREEDOM (-10 OLEN SCORE)
+      window.buyTenMinFreedom = function () {
+        olenScore = Math.max(0, olenScore - 10);
+        todayDelta -= 10;
+        freedomSessions += 1;
+        syncScoreDisplays();
+        const fEl = document.getElementById('stats-freedom-count');
+        if (fEl) fEl.textContent = String(freedomSessions);
+        window.phoneToast('10 min Freedom granted (-10 Olen Score)');
+      };
+
+      // Stats: Reclaimed in Real Life data & Shuffle / Mode switch
+      const reclaimedSets = [
+        [
+          { dot: '#E8FF00', week: '1 sharp kettlebell circuit', year: '52 sharp kettlebell circuits', sub: 'SPORTS · 15 min of high-output strength work' },
+          { dot: '#38BDF8', week: '1 full-body stretch session', year: '78 full-body stretch sessions', sub: 'WELLNESS · 10 min off the screen, back in your body' },
+          { dot: '#F59E0B', week: '1 real voice call with a close friend', year: '78 real calls with close friends', sub: 'LIFESTYLE · 10 min of actual conversation instead of scrolling' }
+        ],
+        [
+          { dot: '#E8FF00', week: '1 brisk fresh-air walk (1 km)', year: '52 km of fresh-air walks', sub: 'OUTDOORS · 15 min clearing your head outside' },
+          { dot: '#38BDF8', week: '12 pages of a real book', year: '624 pages read (2+ books)', sub: 'READING · 15 min of deep uninterrupted focus' },
+          { dot: '#F59E0B', week: '1 unhurried coffee without a phone', year: '52 mindful coffee breaks', sub: 'MINDFULNESS · Present in the moment' }
+        ],
+        [
+          { dot: '#E8FF00', week: '1 sauna & cold-shower reset', year: '52 sauna & recovery resets', sub: 'RECOVERY · 15 min restoring nervous system calm' },
+          { dot: '#38BDF8', week: '1 focused language lesson', year: '52 focused practice sessions', sub: 'LEARNING · 15 min compounding a real skill' },
+          { dot: '#F59E0B', week: '1 home-cooked breakfast', year: '52 unhurried mornings', sub: 'ROUTINE · Starting the day without a feed' }
+        ]
+      ];
+
+      function renderReclaimedCards() {
+        const container = document.getElementById('reclaimed-cards');
+        if (!container) return;
+        const set = reclaimedSets[reclaimedSetIdx % reclaimedSets.length];
+        container.innerHTML = set.map((item) => `
+          <div class="rounded-[14px] bg-[#0B0B0E] border border-[#1E1E24] p-3">
+            <div class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background:${item.dot}"></span>
+              <div>
+                <div class="text-[12px] font-semibold text-white leading-snug">${reclaimedMode === 'week' ? item.week : item.year}</div>
+                <div class="text-[10px] text-[#8E8E93] mt-0.5 leading-snug">${item.sub}</div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.shuffleRealLife = function () {
+        reclaimedSetIdx = (reclaimedSetIdx + 1) % reclaimedSets.length;
+        renderReclaimedCards();
+        window.phoneToast('Shuffled real-life equivalents');
+      };
+
+      window.setReclaimedMode = function (mode) {
+        reclaimedMode = mode;
+        const wBtn = document.getElementById('reclaimed-week-btn');
+        const yBtn = document.getElementById('reclaimed-year-btn');
+        if (wBtn && yBtn) {
+          wBtn.className = mode === 'week'
+            ? 'py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all'
+            : 'py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] transition-all';
+          yBtn.className = mode === 'year'
+            ? 'py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all'
+            : 'py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] transition-all';
+        }
+        renderReclaimedCards();
+      };
+
+      // Stats: Most Used Apps list (Last 24h vs 7 Days)
+      const appsData = [
+        {
+          name: 'Firefox',
+          limit: 'LIMIT: 120m/day',
+          time24h: '55m',
+          time7d: '6h 25m',
+          pct24h: 100,
+          pct7d: 100,
+          highlight: true,
+          badge: '<div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#FF3B30] via-[#FF9500] to-[#9B51E0] flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="7" opacity="0.9"/><path d="M12 5a7 7 0 0 1 6 10.5C16.5 13 14 11.5 12 12c-1.5-2-.8-4.8 0-7z" fill="#FFD60A"/></svg></div>'
+        },
+        {
+          name: 'Twitch',
+          limit: '',
+          time24h: '46m',
+          time7d: '5h 18m',
+          pct24h: 82,
+          pct7d: 84,
+          highlight: false,
+          badge: '<div class="w-7 h-7 rounded-full bg-[#9146FF] flex items-center justify-center shrink-0"><svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3L2 7v13h5v3l3-3h4l6-6V3H4zm14 10l-3 3h-4l-3 3v-3H5V5h13v8z"/><rect x="13" y="7" width="2" height="5"/><rect x="9" y="7" width="2" height="5"/></svg></div>'
+        },
+        {
+          name: 'Instagram',
+          limit: 'LIMIT: 30m/day',
+          time24h: '45m',
+          time7d: '5h 04m',
+          pct24h: 79,
+          pct7d: 80,
+          highlight: false,
+          badge: '<div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] flex items-center justify-center shrink-0"><svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="0.8" fill="currentColor"/></svg></div>'
+        },
+        {
+          name: 'YouTube',
+          limit: 'LIMIT: 140m/day',
+          time24h: '44m',
+          time7d: '4h 52m',
+          pct24h: 76,
+          pct7d: 77,
+          highlight: false,
+          badge: '<div class="w-7 h-7 rounded-full bg-white flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-[#FF0000]" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="#FFFFFF"/></svg></div>'
+        },
+        {
+          name: 'Spotify',
+          limit: '',
+          time24h: '26m',
+          time7d: '3h 10m',
+          pct24h: 46,
+          pct7d: 50,
+          highlight: false,
+          badge: '<div class="w-7 h-7 rounded-full bg-[#1DB954] flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M6 9.5c4-1.2 8.5-1 12 .8"/><path d="M7.2 13c3.2-.9 6.8-.7 9.6.7"/><path d="M8.5 16.3c2.4-.6 5-.5 7.2.6"/></svg></div>'
+        }
+      ];
+
+      function renderMostUsedApps() {
+        const list = document.getElementById('most-used-apps-list');
+        if (!list) return;
+        list.innerHTML = appsData.map((app) => {
+          const time = appsRange === '24h' ? app.time24h : app.time7d;
+          const pct = appsRange === '24h' ? app.pct24h : app.pct7d;
+          const timeClass = app.highlight ? 'text-[#E8FF00]' : 'text-white';
+          const barClass = app.highlight ? 'bg-[#E8FF00]' : 'bg-[#D8D8E0]';
+          return `
+            <button type="button" onclick="phoneToast('Set daily limit or block ${app.name}')" class="w-full text-left rounded-[14px] bg-[#0B0B0E] border border-[#1E1E24] hover:border-[#343440] p-3 space-y-2 transition-colors">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5">
+                  ${app.badge}
+                  <div>
+                    <div class="text-[12.5px] font-semibold text-white leading-tight">${app.name}</div>
+                    ${app.limit ? `<div class="text-[9.5px] font-semibold text-[#E89B2D] mt-0.5">${app.limit}</div>` : ''}
+                  </div>
+                </div>
+                <span class="text-[12px] font-bold ${timeClass} tabular-nums">${time}</span>
+              </div>
+              <div class="w-full h-[3.5px] rounded-full bg-[#222228] overflow-hidden">
+                <div class="h-full rounded-full ${barClass}" style="width: ${pct}%;"></div>
+              </div>
+            </button>
+          `;
+        }).join('');
+      }
+
+      window.setAppsRange = function (range) {
+        appsRange = range;
+        const b24 = document.getElementById('apps-24h-btn');
+        const b7d = document.getElementById('apps-7d-btn');
+        if (b24 && b7d) {
+          b24.className = range === '24h'
+            ? 'py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all'
+            : 'py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] transition-all';
+          b7d.className = range === '7d'
+            ? 'py-1.5 rounded-full text-[11px] font-bold bg-[#F5F5F7] text-black transition-all'
+            : 'py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] transition-all';
+        }
+        renderMostUsedApps();
+      };
+
+      // Guardian Tab segmented toggle: My Lock | Act as Guardian
+      window.setGuardianMode = function (mode) {
+        const myBtn = document.getElementById('guardian-mylock-btn');
+        const actBtn = document.getElementById('guardian-act-btn');
+        const myCard = document.getElementById('guardian-card-mylock');
+        const actCard = document.getElementById('guardian-card-act');
+        if (myBtn && actBtn) {
+          myBtn.className = mode === 'mylock'
+            ? 'py-2 rounded-full text-[11.5px] font-bold bg-[#F5F5F7] text-black transition-all'
+            : 'py-2 rounded-full text-[11.5px] font-medium text-[#8E8E93] transition-all';
+          actBtn.className = mode === 'act'
+            ? 'py-2 rounded-full text-[11.5px] font-bold bg-[#F5F5F7] text-black transition-all'
+            : 'py-2 rounded-full text-[11.5px] font-medium text-[#8E8E93] transition-all';
+        }
+        if (myCard && actCard) {
+          myCard.classList.toggle('hidden', mode !== 'mylock');
+          actCard.classList.toggle('hidden', mode !== 'act');
+        }
+      };
+
+      // Settings -> Privacy & Legal scrolls main page to #privacy
+      window.scrollToPrivacySection = function () {
+        const target = document.getElementById('privacy');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      // Initialize dynamic stats lists
+      renderReclaimedCards();
+      renderMostUsedApps();
+
+      /* ---------------------------------------------------------
+         5. 60FPS HERO CANVAS: SHIELD ACTIVE <-> NOISE MODE + SHOCKWAVE
+         --------------------------------------------------------- */
+      const canvas = document.getElementById('hero-canvas');
+      const shieldToggleBtn = document.getElementById('shield-toggle-btn');
+      const shieldToggleLabel = document.getElementById('shield-toggle-label');
+      const shieldToggleIndicator = document.getElementById('shield-toggle-indicator');
+      const heroStatusDot = document.getElementById('hero-status-dot');
+      const heroEyebrowText = document.getElementById('hero-eyebrow-text');
+      const phoneGlow = document.getElementById('phone-glow');
+      const phoneShieldPill = document.getElementById('phone-shield-pill');
+      const phoneShieldDot = document.getElementById('phone-shield-dot');
+      const phoneShieldText = document.getElementById('phone-shield-text');
+
+      let shieldActive = true;
+      let shockwave = { active: false, radius: 0, alpha: 0 };
+
+      function updateShieldVisuals() {
+        if (shieldToggleBtn) {
+          shieldToggleBtn.setAttribute('aria-checked', String(shieldActive));
+        }
+
+        if (shieldActive) {
+          if (shieldToggleBtn) {
+            shieldToggleBtn.className = 'group inline-flex items-center gap-3 px-5 py-3.5 rounded-full bg-charcoal/90 backdrop-blur-xl border border-emeraldNeon/45 text-emeraldNeon font-mono text-xs font-bold tracking-wider transition-all duration-300 hover:bg-emeraldNeon/12 active:scale-[0.98]';
+          }
+          if (shieldToggleIndicator) {
+            shieldToggleIndicator.className = 'w-2.5 h-2.5 rounded-full bg-emeraldNeon shadow-[0_0_10px_#39FF88] transition-colors';
+          }
+          if (shieldToggleLabel) shieldToggleLabel.textContent = 'SHIELD ACTIVE';
+          if (heroStatusDot) heroStatusDot.className = 'relative w-2 h-2 rounded-full bg-emeraldNeon text-emeraldNeon pulse-ring';
+          if (heroEyebrowText) heroEyebrowText.textContent = 'OLEN // DIGITAL WELLBEING & FOCUS';
+          if (phoneGlow) phoneGlow.className = 'absolute -inset-4 rounded-[3.2rem] bg-gradient-to-tr from-volt/15 via-emeraldNeon/10 to-transparent blur-2xl opacity-80 transition-all duration-500 pointer-events-none';
+          if (phoneShieldPill) phoneShieldPill.className = 'px-2.5 py-1 rounded-full bg-[#111114] border border-[#26262E] text-[10px] font-bold tracking-wider text-white flex items-center gap-1.5 hover:border-white/40 transition-colors';
+          if (phoneShieldDot) phoneShieldDot.className = 'w-1.5 h-1.5 rounded-full bg-white';
+          if (phoneShieldText) phoneShieldText.textContent = 'SHIELD';
+        } else {
+          if (shieldToggleBtn) {
+            shieldToggleBtn.className = 'group inline-flex items-center gap-3 px-5 py-3.5 rounded-full bg-chaosRed/15 backdrop-blur-xl border border-chaosRed/55 text-chaosRed font-mono text-xs font-bold tracking-wider transition-all duration-300 hover:bg-chaosRed/25 active:scale-[0.98]';
+          }
+          if (shieldToggleIndicator) {
+            shieldToggleIndicator.className = 'w-2.5 h-2.5 rounded-full bg-chaosRed shadow-[0_0_10px_#FF3366] transition-colors';
+          }
+          if (shieldToggleLabel) shieldToggleLabel.textContent = 'NOISE MODE';
+          if (heroStatusDot) heroStatusDot.className = 'relative w-2 h-2 rounded-full bg-chaosRed text-chaosRed pulse-ring';
+          if (heroEyebrowText) heroEyebrowText.textContent = 'ALERT // DISTRACTION FEED UNBLOCKED';
+          if (phoneGlow) phoneGlow.className = 'absolute -inset-4 rounded-[3.2rem] bg-gradient-to-tr from-chaosRed/30 via-fuchsia-600/20 to-transparent blur-2xl opacity-90 transition-all duration-500 pointer-events-none';
+          if (phoneShieldPill) phoneShieldPill.className = 'px-2.5 py-1 rounded-full bg-[#240B12] border border-[#FF3366]/60 text-[10px] font-bold tracking-wider text-[#FF3366] flex items-center gap-1.5 transition-colors';
+          if (phoneShieldDot) phoneShieldDot.className = 'w-1.5 h-1.5 rounded-full bg-[#FF3366]';
+          if (phoneShieldText) phoneShieldText.textContent = 'PAUSED';
+        }
+      }
+
+      window.toggleHeroShield = function () {
+        shieldActive = !shieldActive;
+        updateShieldVisuals();
+
+        if (shieldActive) {
+          // Trigger electric-yellow shockwave sweep!
+          shockwave = { active: true, radius: 24, alpha: 0.95 };
+          window.showToast('SHIELD ACTIVE — Distraction noise swept away');
+          window.phoneToast('OLEN Shield Engaged');
+        } else {
+          window.showToast('NOISE MODE — Unblocked distraction streams', true);
+          window.phoneToast('Shield Paused — Noise Mode');
+        }
+      };
+
+      if (shieldToggleBtn) {
+        shieldToggleBtn.addEventListener('click', window.toggleHeroShield);
+      }
+
+      if (canvas && canvas.getContext) {
+        const ctx = canvas.getContext('2d');
+        let width = 0;
+        let height = 0;
+        let dpr = Math.min(window.devicePixelRatio || 1, 2);
+        let particles = [];
+        let streaks = [];
+        let animFrameId = null;
+        let focusBlend = 1.0; // Starts serene (Shield Active)
+        let time = 0;
+        const RING_COUNT = 4;
+
+        function getCoreCenter() {
+          const isDesktop = width >= 1024;
+          return {
+            x: isDesktop ? width * 0.68 : width * 0.5,
+            y: isDesktop ? height * 0.5 : height * 0.36
+          };
+        }
+
+        function initScene() {
+          const pCount = width < 640 ? 95 : width < 1024 ? 145 : 195;
+          const baseRadius = Math.min(width, height) * (width >= 1024 ? 0.145 : 0.19);
+          particles = [];
+          for (let i = 0; i < pCount; i++) {
+            const ringIndex = i % RING_COUNT;
+            const ringRadius = baseRadius * (1 + ringIndex * 0.56) + (Math.random() - 0.5) * 18;
+            const angle = Math.random() * Math.PI * 2;
+            const dir = ringIndex % 2 === 0 ? 1 : -1;
+            const center = getCoreCenter();
+            particles.push({
+              x: center.x + Math.cos(angle) * ringRadius,
+              y: center.y + Math.sin(angle) * ringRadius,
+              vx: (Math.random() - 0.5) * 5.2,
+              vy: (Math.random() - 0.5) * 5.2,
+              ringIndex,
+              ringRadius,
+              angle,
+              angularSpeed: (0.0018 + (RING_COUNT - ringIndex) * 0.00075) * dir,
+              size: Math.random() * 1.9 + 0.9,
+              isVolt: ringIndex % 2 === 0,
+              phase: Math.random() * Math.PI * 2,
+              chaosColor: Math.random() > 0.45 ? '#FF3366' : '#E040FB'
+            });
+          }
+
+          // Vertical scroll-feed distraction streaks for Noise Mode
+          streaks = [];
+          const sCount = width < 640 ? 18 : 34;
+          for (let i = 0; i < sCount; i++) {
+            streaks.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              len: 36 + Math.random() * 110,
+              speed: 7 + Math.random() * 12,
+              color: Math.random() > 0.5 ? '#FF3366' : '#D946EF',
+              w: 1.2 + Math.random() * 1.6
+            });
+          }
+        }
+
+        function resizeCanvas() {
+          const section = canvas.parentElement;
+          width = section ? section.clientWidth : window.innerWidth;
+          height = section ? section.clientHeight : window.innerHeight;
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.floor(width * dpr);
+          canvas.height = Math.floor(height * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          initScene();
+          if (reducedMotion) renderFrame(true);
+        }
+
+        function lerpColor(hexA, hexB, t) {
+          const a = parseInt(hexA.slice(1), 16);
+          const b = parseInt(hexB.slice(1), 16);
+          const rA = (a >> 16) & 255, gA = (a >> 8) & 255, bA = a & 255;
+          const rB = (b >> 16) & 255, gB = (b >> 8) & 255, bB = b & 255;
+          return `rgb(${Math.round(rA + (rB - rA) * t)},${Math.round(gA + (gB - gA) * t)},${Math.round(bA + (bB - bA) * t)})`;
+        }
+
+        function renderFrame(staticSnap) {
+          ctx.clearRect(0, 0, width, height);
+
+          const target = shieldActive ? 1.0 : 0.0;
+          focusBlend += (target - focusBlend) * (staticSnap ? 1 : 0.045);
+          time += 0.016;
+
+          const center = getCoreCenter();
+          const baseRadius = Math.min(width, height) * (width >= 1024 ? 0.145 : 0.19);
+
+          // 1) Subtle Golden-Yellow Grid Pulse in Shield Active Mode
+          if (focusBlend > 0.05) {
+            const gridSize = 56;
+            const pulseAlpha = (0.028 + Math.sin(time * 1.2) * 0.012) * focusBlend;
+            ctx.save();
+            ctx.strokeStyle = `rgba(244, 255, 0, ${pulseAlpha.toFixed(4)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            for (let x = 0; x < width; x += gridSize) {
+              ctx.moveTo(x, 0);
+              ctx.lineTo(x, height);
+            }
+            for (let y = 0; y < height; y += gridSize) {
+              ctx.moveTo(0, y);
+              ctx.lineTo(width, y);
+            }
+            ctx.stroke();
+            ctx.restore();
+          }
+
+          // 2) Calm Glowing Orbital Rings (Shield Active)
+          if (focusBlend > 0.04) {
+            ctx.save();
+            for (let r = 0; r < RING_COUNT; r++) {
+              const rad = baseRadius * (1 + r * 0.56) + Math.sin(time * 1.1 + r) * 3;
+              ctx.beginPath();
+              ctx.arc(center.x, center.y, rad, 0, Math.PI * 2);
+              ctx.strokeStyle = r % 2 === 0
+                ? `rgba(244, 255, 0, ${(0.12 * focusBlend).toFixed(3)})`
+                : `rgba(57, 255, 136, ${(0.1 * focusBlend).toFixed(3)})`;
+              ctx.lineWidth = 1;
+              ctx.setLineDash(r % 2 === 1 ? [5, 9] : []);
+              ctx.stroke();
+            }
+
+            // Soft golden-emerald core aura
+            const coreGrad = ctx.createRadialGradient(center.x, center.y, 6, center.x, center.y, baseRadius * 1.15);
+            coreGrad.addColorStop(0, `rgba(244, 255, 0, ${(0.13 * focusBlend).toFixed(3)})`);
+            coreGrad.addColorStop(0.55, `rgba(57, 255, 136, ${(0.045 * focusBlend).toFixed(3)})`);
+            coreGrad.addColorStop(1, 'rgba(8, 8, 11, 0)');
+            ctx.fillStyle = coreGrad;
+            ctx.beginPath();
+            ctx.arc(center.x, center.y, baseRadius * 1.15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+
+          // 3) Fast Chaotic Scroll / Notification Streaks (Noise Mode)
+          const chaosAlpha = 1 - focusBlend;
+          if (chaosAlpha > 0.04) {
+            ctx.save();
+            for (let i = 0; i < streaks.length; i++) {
+              const s = streaks[i];
+              if (!staticSnap) {
+                s.y -= s.speed;
+                if (s.y + s.len < 0) {
+                  s.y = height + s.len;
+                  s.x = Math.random() * width;
+                }
+              }
+              const grad = ctx.createLinearGradient(s.x, s.y, s.x, s.y + s.len);
+              grad.addColorStop(0, s.color);
+              grad.addColorStop(1, 'rgba(8, 8, 11, 0)');
+              ctx.strokeStyle = grad;
+              ctx.globalAlpha = 0.42 * chaosAlpha;
+              ctx.lineWidth = s.w;
+              ctx.beginPath();
+              ctx.moveTo(s.x, s.y);
+              ctx.lineTo(s.x, s.y + s.len);
+              ctx.stroke();
+
+              // Little pulsing red notification ping dots
+              ctx.fillStyle = s.color;
+              ctx.globalAlpha = 0.72 * chaosAlpha;
+              ctx.beginPath();
+              ctx.arc(s.x, s.y, s.w * 1.4, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            ctx.restore();
+          }
+
+          // 4) Particles (calm focus orbits <-> chaotic noise scatter)
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            if (!staticSnap) {
+              p.angle += p.angularSpeed * (0.45 + 0.55 * focusBlend);
+
+              // Add noise velocity turbulence
+              p.vx += Math.sin(time * 3.1 + p.phase) * 0.22 * chaosAlpha;
+              p.vy += Math.cos(time * 2.7 + p.phase) * 0.22 * chaosAlpha;
+              const spd = Math.hypot(p.vx, p.vy);
+              if (spd > 6.0) {
+                p.vx = (p.vx / spd) * 6.0;
+                p.vy = (p.vy / spd) * 6.0;
+              }
+
+              const wave = Math.sin(p.angle * 3 + time * 1.4) * 5;
+              const tx = center.x + Math.cos(p.angle) * (p.ringRadius + wave);
+              const ty = center.y + Math.sin(p.angle) * (p.ringRadius + wave);
+
+              if (focusBlend > 0.03) {
+                const pull = 0.055 * focusBlend;
+                p.x += (tx - p.x) * pull + p.vx * chaosAlpha;
+                p.y += (ty - p.y) * pull + p.vy * chaosAlpha;
+              } else {
+                p.x += p.vx;
+                p.y += p.vy;
+              }
+
+              if (p.x < -20) p.x = width + 20;
+              if (p.x > width + 20) p.x = -20;
+              if (p.y < -20) p.y = height + 20;
+              if (p.y > height + 20) p.y = -20;
+            }
+
+            const focusHex = p.isVolt ? '#F4FF00' : '#39FF88';
+            const col = lerpColor(p.chaosColor, focusHex, focusBlend);
+
+            if (chaosAlpha > 0.15) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p.x - p.vx * 3.2 * chaosAlpha, p.y - p.vy * 3.2 * chaosAlpha);
+              ctx.strokeStyle = col;
+              ctx.globalAlpha = 0.35 * chaosAlpha;
+              ctx.lineWidth = 1.1;
+              ctx.stroke();
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = col;
+            ctx.globalAlpha = 0.45 + 0.35 * Math.sin(time * 2 + p.phase) * 0.5 + 0.25;
+            ctx.fill();
+          }
+
+          // 5) Electric Yellow Shockwave Ring when re-engaging Shield Active
+          if (shockwave.active) {
+            ctx.save();
+            const maxRad = Math.hypot(width, height) * 0.95;
+            shockwave.radius += Math.max(18, maxRad * 0.032);
+            shockwave.alpha *= 0.92;
+
+            ctx.beginPath();
+            ctx.arc(center.x, center.y, shockwave.radius, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(244, 255, 0, ${shockwave.alpha.toFixed(3)})`;
+            ctx.lineWidth = 3.5;
+            ctx.shadowColor = '#F4FF00';
+            ctx.shadowBlur = 18;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(center.x, center.y, Math.max(0, shockwave.radius - 26), 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(57, 255, 136, ${(shockwave.alpha * 0.55).toFixed(3)})`;
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.restore();
+
+            if (shockwave.radius > maxRad || shockwave.alpha < 0.02) {
+              shockwave.active = false;
+            }
+          }
+
+          ctx.globalAlpha = 1;
+        }
+
+        function loop() {
+          if (!document.hidden && !reducedMotion) {
+            renderFrame(false);
+            animFrameId = requestAnimationFrame(loop);
+          } else {
+            animFrameId = null;
+          }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden && !reducedMotion && !animFrameId) loop();
+        });
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        if (!reducedMotion) loop();
+      }
+    })();
+  </script>
 </body>
 </html>
